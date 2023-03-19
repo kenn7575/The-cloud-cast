@@ -15,6 +15,6 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SVELTE_WETHER_SITE }}"
           expires: 10d
-          projectId: your-Firebase-project-ID
+          projectId: svelte-wether-site
         env:
         FIREBASE-CLI-PREVIEWS: hostingchannel
