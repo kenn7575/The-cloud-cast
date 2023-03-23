@@ -2,9 +2,20 @@
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
+  import { getWetherData } from "./lib/wether_api/WeatherDataAccess.js";
+
+  const importData = async () => {
+    await getWetherData(55.3959, 10.3883).then((data) => {
+      console.log(data, 2);
+      return data;
+    });
+  };
+
+  console.log(importData(), 1);
 </script>
 
 <main>
+  <h2 />
   <div>
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
