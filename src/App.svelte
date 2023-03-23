@@ -1,60 +1,50 @@
 <script>
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
-  import Counter from "./lib/Counter.svelte";
-  import { getWetherData } from "./lib/wether_api/WeatherDataAccess.js";
-
-  const importData = async () => {
-    await getWetherData(55.3959, 10.3883).then((data) => {
-      console.log(data, 2);
-      return data;
-    });
-  };
-
-  console.log(importData(), 1);
+  import { GetWeatherSympol } from "./lib/weather_api/IconService.js";
+  const icon = GetWeatherSympol(0);
+  console.log(icon);
 </script>
 
 <main>
-  <h2 />
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a
-      href="https://github.com/sveltejs/kit#readme"
-      target="_blank"
-      rel="noreferrer">SvelteKit</a
-    >, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
+  {@html icon}
+  <!-- <div class="grid">
+    <div class="grid-element one" />
+    <div class="grid-element two" />
+    <div class="grid-element three" />
+    <div class="grid-element four " />
+    <div class="grid-element five " />
+  </div> -->
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 100%;
+    height: 100%;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  .grid-element {
+    min-height: 230px;
+    background-color: #eee;
+    border: 1px solid #ccc;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+  .one {
+    grid-column: 1/1;
+    grid-row: 1/4;
   }
-  .read-the-docs {
-    color: #888;
+  .two {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .three {
+    grid-column: 3/4;
+    grid-row: 1/3;
+  }
+  .four {
+    grid-column: 2/4;
+    grid-row: 3/4;
   }
 </style>
