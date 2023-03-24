@@ -3,25 +3,94 @@
   font-family: "Roboto Mono", monospace;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
-
-a {
+#app.blue {
+  --background-primary: #303f9f;
+  --background-secondary: #ffffff;
+  --text-1: #ffffff;
+  --text-2: #303f9f;
+  --background-3: #3f51b5;
+  --background-4: #c5cae9;
+  --background-5: #b53e50;
+}
+#app.orange {
+  --background-1: #f57c00;
+  --background-2: #ffffff;
+  --text-1: #ffffff;
+  --text-2: #f57c00;
+  --background-3: #ff9800;
+  --background-4: #ffe0b2;
+  --background-5: #3974cc;
+}
+#app.gray {
+  --background-1: #455a64;
+  --background-2: #ffffff;
+  --text-1: #ffffff;
+  --text-2: #455a64;
+  --background-3: #607d8b;
+  --background-4: #cfd8dc;
+  --background-5: #00bcd4;
+}
+#app.cyan {
+  --background-1: #0097a7;
+  --background-2: #ffffff;
+  --text-1: #ffffff;
+  --text-2: #0097a7;
+  --background-3: #00bcd4;
+  --background-4: #b2ebf2;
+  --background-5: #d44d3c;
+}
+#app {
+  background-color: var(--background-1);
+  padding: 2rem;
+}
+/* city name */
+h1 {
+  font-weight: 700;
+  font-size: 2.625em;
+}
+/* tempreture */
+h2 {
+  font-weight: 700;
+  font-size: 5.5em;
+}
+/* weather description */
+h3 {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-size: 1.375em;
 }
-a:hover {
-  color: #535bf2;
+/* component title */
+h4 {
+  color: var(--text-2);
+  margin: 5px;
+  font-weight: 700;
+  font-size: 1em;
+}
+/* grid comtainer */
+.grid-element {
+  border: 1px solid var(--background-2);
+  border-radius: 25px;
+}
+.bg-1 {
+  background-color: var(--background-1);
+}
+.bg-2 {
+  background-color: var(--background-2);
+}
+.bg-3 {
+  background-color: var(--background-3);
+}
+.bg-4 {
+  background-color: var(--background-4);
+}
+.bg-5 {
+  background-color: var(--background-5);
+}
+.t-1 {
+  color: var(--text-1);
+}
+.t-2 {
+  color: var(--text-2);
 }
 
 body {
@@ -37,44 +106,4 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  padding: 2rem;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

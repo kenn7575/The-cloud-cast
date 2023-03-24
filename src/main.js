@@ -6,3 +6,7 @@ const app = new App({
 });
 
 export default app;
+
+//this function is getting the current weather data from the API and setting the color theme
+import { setColorTheme } from "./lib/services/colorThemeService.js";
+setColorTheme();

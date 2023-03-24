@@ -1,6 +1,6 @@
 <script>
-  import { GetWeatherSympol } from "./weather_api/IconService.js";
-  import { getWetherData } from "./weather_api/WeatherDataAccess";
+  import { GetWeatherSympol } from "./services/IconTranslationService.js";
+  import { getWetherData } from "./services/WeatherDataAccess";
 </script>
 
 {#await getWetherData()}

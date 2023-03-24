@@ -4,17 +4,6 @@ export const getWetherData = async (lat, lon) => {
   );
   const data = await response.json();
   console.log(data);
-  return data;
-  // .then((response) => {
-  //   response.json().then((result) => {
-  //     //console.log(result);
-  //     data = result;
-  //     console.log(data);
-  //   });
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // });
-
+  let formatedData = [];
   return data;
 };

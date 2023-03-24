@@ -1,27 +1,36 @@
 <script>
   import MediaQuery from "../node_modules/svelte-media-queries/components/MediaQuery.svelte";
-  import Default from "./lib/default.svelte";
-  import Tablet from "./lib/tablet.svelte";
-  import DataExample from "./lib/data_example.svelte";
+  import DefaultView from "./lib/views/defaultView.svelte";
+  import TabletView from "./lib/views/tabletView.svelte";
+  import MobileView from "./lib/views/mobileView.svelte";
 </script>
 
-<MediaQuery query="(min-width: 1281px)" let:matches>
-  {#if matches}
-    <!-- default -->
-    <Default />
-  {/if}
-</MediaQuery>
+<div class="content">
+  <MediaQuery query="(min-width: 1281px)" let:matches>
+    {#if matches}
+      <!-- default -->
+      <DefaultView />
+    {/if}
+  </MediaQuery>
 
-<MediaQuery query="(min-width: 481px) and (max-width: 1280px)" let:matches>
-  {#if matches}
-    <!-- tablet -->
-    <Tablet />
-  {/if}
-</MediaQuery>
+  <MediaQuery query="(min-width: 701px) and (max-width: 1280px)" let:matches>
+    {#if matches}
+      <!-- tablet -->
+      <TabletView />
+    {/if}
+  </MediaQuery>
 
-<MediaQuery query="(max-width: 480px)" let:matches>
-  {#if matches}
-    <!-- mobile -->
-  {/if}
-</MediaQuery>
-<!-- <DataExample /> -->
+  <MediaQuery query="(max-width: 700px)" let:matches>
+    {#if matches}
+      <!-- mobile -->
+      <MobileView />
+    {/if}
+  </MediaQuery>
+</div>
+
+<style>
+  .content {
+    height: 800px;
+    margin-bottom: calc(2rem + 4%);
+  }
+</style>
