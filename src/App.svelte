@@ -2,7 +2,7 @@
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import { GetWeatherSympol } from "./lib/weather_api/IconService.js";
-  const icon = GetWeatherSympol(0);
+  const icon = GetWeatherSympol(45);
 </script>
 
 <main>

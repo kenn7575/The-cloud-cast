@@ -1,25 +1,31 @@
-import { clear } from "../../../public/icons/clear.js";
+import { clearSky } from "../../../public/icons/clearSky.js";
+import { fewClouds } from "../../../public/icons/fewClouds.js";
+import { partlyCloudy } from "../../../public/icons/partlyCloudy.js";
+import { overcast } from "../../../public/icons/overcast.js";
+import { fog } from "../../../public/icons/fog.js";
+
+
 
 export function GetWeatherSympol(weather) {
   switch (weather) {
     case 0:
       //clear sky
-      return clear;
+      return clearSky;
     case 1:
       //few clouds
-      return "🌤️";
+      return fewClouds;
     case 2:
       //partly cloudy
-      return "⛅️";
+      return partlyCloudy;
     case 3:
       //overcast
-      return "🌥️";
+      return overcast;
     case 45:
       //fog
-      return "🌫️";
+      return fog;
     case 48:
       //freezing fog
-      return "🌫️";
+      return fog;
     case 51:
       //drizzle light - støvregn
       return "🌧️";
