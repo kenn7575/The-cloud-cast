@@ -3,18 +3,17 @@
   import viteLogo from "/vite.svg";
   import { GetWeatherSympol } from "./lib/weather_api/IconService.js";
   const icon = GetWeatherSympol(0);
-  console.log(icon);
 </script>
 
 <main>
   {@html icon}
-  <!-- <div class="grid">
+  <div class="grid">
     <div class="grid-element one" />
     <div class="grid-element two" />
     <div class="grid-element three" />
     <div class="grid-element four " />
     <div class="grid-element five " />
-  </div> -->
+  </div>
 </main>
 
 <style>
