@@ -2,23 +2,24 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-'on':
+on:
   push:
     branches:
       - main
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
       - uses: actions/setup-node@master
-      with:
+        with:
           node-version: 16
       - run: npm install
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SVELTE_WETHER_SITE }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SVELTE_WETHER_SITE }}"
           channelId: live
           projectId: svelte-wether-site
