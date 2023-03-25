@@ -11,6 +11,9 @@
 </script>
 
 <div class="flex">
+  {#if hourlyData.length === 0}
+    <p>Loading...</p>
+  {/if}
   {#each hourlyData as hour}
     <HourlyForecast time={hour.time} icon={hour.weathercode} temp={hour.temp} />
   {/each}
@@ -21,7 +24,7 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    height: 100%;
+    height: 140px;
     overflow-x: scroll;
     gap: 5px;
     padding-bottom: 1rem;

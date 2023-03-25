@@ -3,6 +3,26 @@
   font-family: "Roboto Mono", monospace;
   line-height: 1.5;
   font-weight: 400;
+
+  --background-1: #303f9f;
+  --background-2: #ffffff;
+  --text-1: #ffffff;
+  --text-2: #303f9f;
+  --background-3: #3f51b5;
+  --background-4: #c5cae9;
+  --background-5: #b53e50;
+}
+* {
+  transition: background-color 1s ease;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  transition: color 1s ease;
 }
 #app.blue {
   --background-1: #303f9f;
