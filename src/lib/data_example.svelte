@@ -5,6 +5,7 @@
 
 {#await getWetherData()}
   <!-- promise is pending -->
+
   <p>Loading...</p>
 {:then value}
   <!-- promise was fulfilled -->
