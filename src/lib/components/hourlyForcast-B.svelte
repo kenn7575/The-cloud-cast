@@ -1,7 +1,7 @@
 <script>
   import HourlyForecast from "./hourlyForecast-C.svelte";
-  import { HourlyDataService } from "../services/hourlyDataService";
-  import { filterHourlyData } from "../services/filterHourlyData";
+  import { HourlyDataService } from "../services/getHourlyDataService";
+  import { filterHourlyData } from "../services/filterHourlyDataService";
 
   //get data asynchronusly
   $: hourlyData = [];

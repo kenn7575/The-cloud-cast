@@ -5,8 +5,8 @@
   font-weight: 400;
 }
 #app.blue {
-  --background-primary: #303f9f;
-  --background-secondary: #ffffff;
+  --background-1: #303f9f;
+  --background-2: #ffffff;
   --text-1: #ffffff;
   --text-2: #303f9f;
   --background-3: #3f51b5;
