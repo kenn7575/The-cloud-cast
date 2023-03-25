@@ -1,11 +1,16 @@
 <script>
+  import HourlyForecast from "../components/hourlyForcast-B.svelte";
 </script>
 
 <div class="grid">
   <div class="grid-element one" />
   <div class="grid-element two bg-2" />
   <div class="grid-element three" />
-  <div class="grid-element four bg-2" />
+  <div class="grid-element four bg-2">
+    <h4>Time oversigt</h4>
+
+    <HourlyForecast />
+  </div>
 </div>
 
 <style>
@@ -35,5 +40,6 @@
   .four {
     grid-column: 1/3;
     grid-row: 3/4;
+    padding: 0 1rem;
   }
 </style>
