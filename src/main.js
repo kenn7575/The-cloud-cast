@@ -1,5 +1,6 @@
 import "./app.css";
 import App from "./App.svelte";
+import weatherData from "./lib/data/WeatherDataStore.js";
 
 const app = new App({
   target: document.getElementById("app"),

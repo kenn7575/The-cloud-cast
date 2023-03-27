@@ -1,0 +1,34 @@
+import weatherData from "./WeatherDataStore";
+import { hourlyWeatherData } from "./WeatherDataStore";
+
+const unsubscribe = weatherData.subscribe((value) => {
+  console.log(value);
+  let filteredData = filterData(value);
+  updateHourlyData(filteredData);
+});
+
+const filterData = (data) => {
+  const d = new Date();
+  const hour = d.getHours();
+
+  let formatedData = [];
+  let index = 0;
+  for (index; index < 24; index++) {
+    let weatherCode = data.hourly.weathercode[index + hour];
+    let temperature = data.hourly.temperature_2m[index + hour];
+    let time = data.hourly.time[index + hour];
+    let formatedTime = time.slice(11, 16);
+    formatedData.push({
+      time: formatedTime,
+      weathercode: weatherCode,
+      temp: temperature,
+    });
+  }
+  return formatedData;
+};
+
+const updateHourlyData = (filteredData) => {
+  hourlyWeatherData.update(() => {
+    return filteredData;
+  });
+};
