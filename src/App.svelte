@@ -3,9 +3,6 @@
   import DefaultView from "./lib/views/defaultView.svelte";
   import TabletView from "./lib/views/tabletView.svelte";
   import MobileView from "./lib/views/mobileView.svelte";
-
-  import { hourlyWeatherData } from "./lib/data/WeatherDataStores.js";
-  $: console.log($hourlyWeatherData);
 </script>
 
 <div class="content">

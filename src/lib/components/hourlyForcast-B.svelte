@@ -1,18 +1,23 @@
 <script>
   import HourlyForecast from "./hourlyForecast-C.svelte";
-  import { hourlyWeatherData } from "../data/HourlyWeatherData.js";
+  import { hourlyWeatherData } from "../data/WeatherDataStores.js";
 
-  $: hourlyData = [];
-  hourlyData = $hourlyWeatherData;
+  $: hourlyData = $hourlyWeatherData;
 </script>
 
 <div class="flex">
-  {#if hourlyData.length === 0}
-    <p>Loading...</p>
+  {#if hourlyData != null}
+    {#if hourlyData.length === 0}
+      <p>Loading...</p>
+    {/if}
+    {#each hourlyData as hour}
+      <HourlyForecast
+        time={hour.time}
+        icon={hour.weathercode}
+        temp={hour.temp}
+      />
+    {/each}
   {/if}
-  {#each hourlyData as hour}
-    <HourlyForecast time={hour.time} icon={hour.weathercode} temp={hour.temp} />
-  {/each}
 </div>
 
 <style>

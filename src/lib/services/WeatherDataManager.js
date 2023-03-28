@@ -21,17 +21,16 @@ const initBackend = async () => {
   //get weather data
   await RetreiveWeatherData(cities[0]).then((result) => {
     //update the store with the weather data
-
     weatherData.update(() => {
-      console.log(result);
       return result;
     });
-    //update child stores
-    weatherData.subscribe((data) => {
-      const filteredData = filterData(data);
-      hourlyWeatherData.update(() => {
-        return filteredData;
-      });
+  });
+  //update child stores
+  weatherData.subscribe((data) => {
+    const filteredData = filterData(data);
+    hourlyWeatherData.update((dara) => {
+      console.log(data);
+      return filteredData;
     });
   });
 };

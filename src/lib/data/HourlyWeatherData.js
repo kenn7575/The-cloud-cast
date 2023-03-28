@@ -1,5 +1,4 @@
-import { weatherData, hourlyWeatherData } from "./WeatherDataStores";
-export { hourlyWeatherData, filterData };
+export { filterData };
 
 const filterData = (data) => {
   const d = new Date();
