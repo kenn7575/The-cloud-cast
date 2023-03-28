@@ -1,13 +1,10 @@
 <script>
   import HourlyForecast from "./hourlyForecast-C.svelte";
-  import { HourlyDataService } from "../services/getHourlyDataService";
-  import { filterHourlyData } from "../services/filterHourlyDataService";
+  import { hourlyWeatherData } from "../data/WeatherDataStores.js";
 
-  //get data asynchronusly
   $: hourlyData = [];
-  HourlyDataService().then((data) => {
-    hourlyData = filterHourlyData(data);
-  });
+  hourlyData = $hourlyWeatherData;
+  console.log(hourlyData, 1);
 </script>
 
 <div class="flex">

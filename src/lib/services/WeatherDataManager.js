@@ -1,4 +1,4 @@
-import WeatherDataStore from "../data/WeatherDataStore.js";
+import { weatherData } from "../data/WeatherDataStores.js";
 import { RetreiveWeatherData } from "../data/RetreiveWeatherData.js";
 
 //get cookies
@@ -11,8 +11,11 @@ let location = { lat: "55.3454", lon: "11.4231" };
 //if cookies are set, get weather data for that location
 
 //when weather data is fetched, update the store
-await RetreiveWeatherData(location.lat, location.lon).then((result) => {
-  WeatherDataStore.update(() => {
+const RetreiveWeatherData = await RetreiveWeatherData(
+  location.lat,
+  location.lon
+).then((result) => {
+  weatherData.update(() => {
     return result;
   });
 });

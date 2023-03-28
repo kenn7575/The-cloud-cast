@@ -1,8 +1,7 @@
-import weatherData from "./WeatherDataStore";
-import { hourlyWeatherData } from "./WeatherDataStore";
+import { weatherData, hourlyWeatherData } from "./WeatherDataStores";
 
 const unsubscribe = weatherData.subscribe((value) => {
-  console.log(value);
+  console.log(value, 2);
   let filteredData = filterData(value);
   updateHourlyData(filteredData);
 });
