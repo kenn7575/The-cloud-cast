@@ -12,6 +12,7 @@
   --background-4: #c5cae9;
   --background-5: #b53e50;
 }
+
 * {
   transition: background-color 1s ease;
 }
@@ -24,7 +25,7 @@ h6,
 p {
   transition: color 1s ease;
 }
-#app.blue {
+.blue {
   --background-1: #303f9f;
   --background-2: #ffffff;
   --text-1: #ffffff;
@@ -33,7 +34,7 @@ p {
   --background-4: #c5cae9;
   --background-5: #b53e50;
 }
-#app.orange {
+.orange {
   --background-1: #f57c00;
   --background-2: #ffffff;
   --text-1: #ffffff;
@@ -42,7 +43,7 @@ p {
   --background-4: #ffe0b2;
   --background-5: #3974cc;
 }
-#app.gray {
+.gray {
   --background-1: #455a64;
   --background-2: #ffffff;
   --text-1: #ffffff;
@@ -51,7 +52,7 @@ p {
   --background-4: #cfd8dc;
   --background-5: #00bcd4;
 }
-#app.cyan {
+.cyan {
   --background-1: #0097a7;
   --background-2: #ffffff;
   --text-1: #ffffff;
@@ -59,6 +60,10 @@ p {
   --background-3: #00bcd4;
   --background-4: #b2ebf2;
   --background-5: #d44d3c;
+}
+
+body {
+  background: var(--background-1);
 }
 #app {
   background-color: var(--background-1);

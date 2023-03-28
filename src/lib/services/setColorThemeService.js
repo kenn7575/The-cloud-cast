@@ -6,13 +6,13 @@ export const setColorTheme = async (lat, lon) => {
   switch (data.current_weather.weathercode) {
     case 0:
     case 1:
-      document.querySelector("#app").className = "orange";
-      break;
     case 2:
+      document.querySelector("body").className = "orange";
+      break;
     case 3:
     case 45:
     case 48:
-      document.querySelector("#app").className = "gray";
+      document.querySelector("body").className = "gray";
       break;
     case 51:
     case 53:
@@ -23,7 +23,7 @@ export const setColorTheme = async (lat, lon) => {
     case 80:
     case 81:
     case 82:
-      document.querySelector("#app").className = "blue";
+      document.querySelector("body").className = "blue";
       break;
     case 56:
     case 57:
@@ -35,14 +35,14 @@ export const setColorTheme = async (lat, lon) => {
     case 77:
     case 85:
     case 86:
-      document.querySelector("#app").className = "lightblue";
+      document.querySelector("body").className = "lightblue";
       break;
     case 95:
     case 96:
     case 99:
-      document.querySelector("#app").className = "purple";
+      document.querySelector("body").className = "purple";
       break;
     default:
-      document.querySelector("#app").className = "blue";
+      document.querySelector("body").className = "blue";
   }
 };

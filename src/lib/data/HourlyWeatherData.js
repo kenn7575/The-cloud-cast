@@ -1,10 +1,5 @@
 import { weatherData, hourlyWeatherData } from "./WeatherDataStores";
-
-const unsubscribe = weatherData.subscribe((value) => {
-  console.log(value, 2);
-  let filteredData = filterData(value);
-  updateHourlyData(filteredData);
-});
+export { hourlyWeatherData, filterData };
 
 const filterData = (data) => {
   const d = new Date();
@@ -24,10 +19,4 @@ const filterData = (data) => {
     });
   }
   return formatedData;
-};
-
-const updateHourlyData = (filteredData) => {
-  hourlyWeatherData.update(() => {
-    return filteredData;
-  });
 };

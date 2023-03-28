@@ -11,4 +11,5 @@ export default app;
 import { setColorTheme } from "./lib/services/setColorThemeService.js";
 setColorTheme();
 
-import { weatherData } from "./lib/services/WeatherDataManager.js";
+import { initBackend } from "./lib/services/WeatherDataManager.js";
+initBackend();

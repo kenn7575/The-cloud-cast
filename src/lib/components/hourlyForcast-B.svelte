@@ -1,10 +1,9 @@
 <script>
   import HourlyForecast from "./hourlyForecast-C.svelte";
-  import { hourlyWeatherData } from "../data/WeatherDataStores.js";
+  import { hourlyWeatherData } from "../data/HourlyWeatherData.js";
 
   $: hourlyData = [];
   hourlyData = $hourlyWeatherData;
-  console.log(hourlyData, 1);
 </script>
 
 <div class="flex">

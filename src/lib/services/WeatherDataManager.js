@@ -1,21 +1,38 @@
-import { weatherData } from "../data/WeatherDataStores.js";
+//gets the weather data from the api
 import { RetreiveWeatherData } from "../data/RetreiveWeatherData.js";
 
-//get cookies
+//gets cityes in the local storage
+import { getCities } from "../data/LocalStorageManager.js";
 
-let location = { lat: "55.3454", lon: "11.4231" };
-//if cookies are not set, get current location
+//updates the store with the local storage data
+import { lastSearchedCitys } from "../data/LocalDataStore.js";
 
-//if location is not found, get weather data for default location
+//updates the store with the weather data
+import { weatherData, hourlyWeatherData } from "../data/WeatherDataStores.js";
 
-//if cookies are set, get weather data for that location
-
-//when weather data is fetched, update the store
-const RetreiveWeatherData = await RetreiveWeatherData(
-  location.lat,
-  location.lon
-).then((result) => {
-  weatherData.update(() => {
-    return result;
+import { filterData } from "../data/HourlyWeatherData.js";
+const initBackend = async () => {
+  //get local storage data and update the store
+  let cities = getCities();
+  lastSearchedCitys.update(() => {
+    return cities;
   });
-});
+  console.log(cities);
+  //get weather data
+  await RetreiveWeatherData(cities[0]).then((result) => {
+    //update the store with the weather data
+
+    weatherData.update(() => {
+      console.log(result);
+      return result;
+    });
+    //update child stores
+    weatherData.subscribe((data) => {
+      const filteredData = filterData(data);
+      hourlyWeatherData.update(() => {
+        return filteredData;
+      });
+    });
+  });
+};
+export { initBackend };
