@@ -4,20 +4,22 @@ import { RetreiveWeatherData } from "../data/apis/RetreiveWeatherData.js";
 import { setColorTheme } from "./setColorThemeService.js";
 //gets cityes in the local storage
 import { getCities } from "../data/local/LocalStorageManager.js";
-//updates the store with the local storage data
-import { lastSearchedCitys } from "../data/stores/LocationDataStores.js";
+//updates the store that relate to locations
+import {
+  lastSearchedCitys,
+  Location,
+  currentLocation,
+} from "../data/stores/LocationDataStores.js";
+//gets the current location from the device
 import { getCoordinates } from "../data/local/CurrentLocationManager.js";
-
-//updates the store with the weather data
+//updates the store that relate to weather data
 import {
   weatherData,
   hourlyWeatherData,
   currentWeatherData,
 } from "../data/stores/WeatherDataStores.js";
-
 //filters the weather data
-import { filterHourlyData } from "./HourlyWeatherFilter.js";
-import { filterCurrentData } from "./CurrentWeatherFilter.js";
+import { filterHourlyData, filterCurrentData } from "./WeatherDataFilters.js";
 
 const initBackend = async () => {
   //get local storage data and update the store
@@ -25,7 +27,6 @@ const initBackend = async () => {
 
   await getCoordinates()
     .then((cords) => {
-      console.log(cords);
       //use current location to lookup the correct city
       let cityName = "københavn"; //TODO use geocode to get city name
       location = {
@@ -33,6 +34,10 @@ const initBackend = async () => {
         lon: cords.longitude,
         city: cityName,
       };
+      currentLocation.update(() => {
+        return location;
+      });
+
       console.log(location);
     })
     .catch(() => {
@@ -43,7 +48,9 @@ const initBackend = async () => {
       location = cities[0];
       console.log(location);
     });
-
+  Location.update(() => {
+    return location;
+  });
   //get weather data
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
     //update the store with the weather data

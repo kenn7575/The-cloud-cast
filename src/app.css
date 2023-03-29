@@ -52,19 +52,6 @@ body,
 #app {
   background: var(--background-1);
 }
-* {
-  transition: background-color 1s ease;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  transition: color 1s ease;
-}
 
 #app {
   background-color: var(--background-1);

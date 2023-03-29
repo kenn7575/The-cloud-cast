@@ -1,3 +1,24 @@
+export { filterHourlyData, filterCurrentData };
+
+const filterHourlyData = (data) => {
+  const d = new Date();
+  const hour = d.getHours();
+
+  let formatedData = [];
+  let index = 0;
+  for (index; index < 24; index++) {
+    let weatherCode = data.hourly.weathercode[index + hour];
+    let temperature = data.hourly.temperature_2m[index + hour];
+    let time = data.hourly.time[index + hour];
+    let formatedTime = time.slice(11, 16);
+    formatedData.push({
+      time: formatedTime,
+      weathercode: weatherCode,
+      temp: Math.round(temperature),
+    });
+  }
+  return formatedData;
+};
 const filterCurrentData = (data) => {
   //format: {temp: float, weathercode: int, time: string, sunset: string, sunrise: string, windSpeed: float, windDirection: int, rainSum: float}
   const temp = data.current_weather.temperature;
@@ -19,4 +40,3 @@ const filterCurrentData = (data) => {
     rainSum: rainSum,
   };
 };
-export { filterCurrentData };
