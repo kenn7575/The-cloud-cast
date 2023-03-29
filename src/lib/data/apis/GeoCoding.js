@@ -8,12 +8,9 @@ const Encode = async (cityName) => {
 };
 const Decode = async (lat, lon) => {
   const response = await fetch(
-    `http://api.positionstack.com/v1/reverse
-  ? access_key = 38b187306b4faf606305861143060869
-  & query = ` +
-      lat +
-      "," +
-      lon
+    `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&format=json&apiKey=15addd394224470e81489b234bb6a147`
   );
   const data = await response.json();
+  return { city: data.results[0].city, country: data.results[0].country };
 };
+export { Encode, Decode };

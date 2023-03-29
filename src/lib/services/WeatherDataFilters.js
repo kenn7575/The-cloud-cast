@@ -1,3 +1,4 @@
+import { formatDailyDate } from "./DateFormatter.js";
 export { filterHourlyData, filterCurrentData };
 
 const filterHourlyData = (data) => {
@@ -15,6 +16,24 @@ const filterHourlyData = (data) => {
       time: formatedTime,
       weathercode: weatherCode,
       temp: Math.round(temperature),
+    });
+  }
+  return formatedData;
+};
+const filterDailyData = (data) => {
+  let formatedData = [];
+  let index = 0;
+  for (index; index < 7; index++) {
+    let weatherCode = data.daily.weathercode[index];
+    let temperature_max = data.daily.temperature_2m_max[index];
+    let temperature_min = data.daily.temperature_2m_min[index];
+    let time = formatDailyDate(data.daily.time[index]);
+
+    formatedData.push({
+      time: time,
+      weathercode: weatherCode,
+      temperature_max: Math.round(temperature_max),
+      temperature_min: Math.round(temperature_min),
     });
   }
   return formatedData;

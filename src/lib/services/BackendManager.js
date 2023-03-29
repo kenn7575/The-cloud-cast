@@ -20,6 +20,8 @@ import {
 } from "../data/stores/WeatherDataStores.js";
 //filters the weather data
 import { filterHourlyData, filterCurrentData } from "./WeatherDataFilters.js";
+//decodes the location to a city name
+import { Decode } from "../data/apis/GeoCoding.js";
 
 const initBackend = async () => {
   //get local storage data and update the store
@@ -28,7 +30,8 @@ const initBackend = async () => {
   await getCoordinates()
     .then((cords) => {
       //use current location to lookup the correct city
-      let cityName = "københavn"; //TODO use geocode to get city name
+      let cityName = Decode(cords.latitude, cords.longitude).then((data) => {});
+      console.log(cityName);
       location = {
         lat: cords.latitude,
         lon: cords.longitude,
@@ -37,8 +40,6 @@ const initBackend = async () => {
       currentLocation.update(() => {
         return location;
       });
-
-      console.log(location);
     })
     .catch(() => {
       let cities = getCities();
@@ -46,11 +47,8 @@ const initBackend = async () => {
         return cities;
       });
       location = cities[0];
-      console.log(location);
     });
-  Location.update(() => {
-    return location;
-  });
+
   //get weather data
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
     //update the store with the weather data
