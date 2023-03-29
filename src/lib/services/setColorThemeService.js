@@ -1,9 +1,10 @@
-export const setColorTheme = async (lat, lon) => {
-  var response = await fetch(
-    "https://api.open-meteo.com/v1/dwd-icon?latitude=52.52&longitude=13.41&current_weather=true&timezone=Europe%2FBerlin&start_date=2023-03-23&end_date=2023-03-30"
-  );
-  const data = await response.json();
-  switch (data.current_weather.weathercode) {
+import { currentWeatherData } from "../data/WeatherDataStores";
+export const setColorTheme = async (data) => {
+  let weatherCode = {};
+  const unsub = currentWeatherData.subscribe((data) => {
+    weatherCode = data.weathercode;
+  });
+  switch (weatherCode) {
     case 0:
     case 1:
     case 2:
@@ -45,4 +46,5 @@ export const setColorTheme = async (lat, lon) => {
     default:
       document.querySelector("body").className = "blue";
   }
+  unsub();
 };

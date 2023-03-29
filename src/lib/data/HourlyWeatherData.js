@@ -1,6 +1,6 @@
-export { filterData };
+export { filterHourlyData };
 
-const filterData = (data) => {
+const filterHourlyData = (data) => {
   const d = new Date();
   const hour = d.getHours();
 

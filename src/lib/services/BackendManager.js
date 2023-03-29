@@ -1,6 +1,6 @@
 //gets the weather data from the api
 import { RetreiveWeatherData } from "../data/RetreiveWeatherData.js";
-
+import { setColorTheme } from "./setColorThemeService.js";
 //gets cityes in the local storage
 import { getCities } from "../data/LocalStorageManager.js";
 
@@ -8,9 +8,14 @@ import { getCities } from "../data/LocalStorageManager.js";
 import { lastSearchedCitys } from "../data/LocalDataStore.js";
 
 //updates the store with the weather data
-import { weatherData, hourlyWeatherData } from "../data/WeatherDataStores.js";
+import {
+  weatherData,
+  hourlyWeatherData,
+  currentWeatherData,
+} from "../data/WeatherDataStores.js";
 
-import { filterData } from "../data/HourlyWeatherData.js";
+import { filterHourlyData } from "../data/HourlyWeatherData.js";
+import { filterCurrentData } from "../data/CurrentWeatherData.js";
 const initBackend = async () => {
   //get local storage data and update the store
   let cities = getCities();
@@ -24,14 +29,23 @@ const initBackend = async () => {
     weatherData.update(() => {
       return result;
     });
-  });
-  //update child stores
-  weatherData.subscribe((data) => {
-    const filteredData = filterData(data);
-    hourlyWeatherData.update((dara) => {
-      console.log(data);
-      return filteredData;
+    //update child stores
+    weatherData.subscribe((data) => {
+      const filteredHourlyData = filterHourlyData(data);
+      const filteredDailyData = filterCurrentData(data);
+      hourlyWeatherData.update((dara) => {
+        console.log(data);
+        return filteredHourlyData;
+      });
+      currentWeatherData.update((dara) => {
+        return filteredDailyData;
+      });
     });
   });
+
+  setColorTheme();
+
+  console.log("done loading");
+  return true;
 };
 export { initBackend };

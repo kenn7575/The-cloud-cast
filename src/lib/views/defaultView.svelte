@@ -7,9 +7,9 @@
   <div class="grid-element two" />
   <div class="grid-element three bg-2" />
   <div class="grid-element four " />
+
   <div class="grid-element five bg-2">
     <h4>Time oversigt</h4>
-
     <HourlyForecast />
   </div>
 </div>
@@ -21,7 +21,7 @@
     grid-template-rows: 29% 43% 28%;
     grid-gap: 3% 2%;
     width: 100%;
-    height: 100%;
+    height: 800px;
     padding-bottom: calc(2rem + 4%);
   }
   .one {

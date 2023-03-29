@@ -48,12 +48,14 @@
   --background-4: #b2ebf2;
   --background-5: #d44d3c;
 }
-body {
+body,
+#app {
   background: var(--background-1);
 }
 * {
   transition: background-color 1s ease;
 }
+
 h1,
 h2,
 h3,
@@ -66,7 +68,6 @@ p {
 
 #app {
   background-color: var(--background-1);
-  padding: 2rem;
 }
 /* city name */
 h1 {
