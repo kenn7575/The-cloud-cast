@@ -1,4 +1,4 @@
-import { currentWeatherData } from "../data/WeatherDataStores";
+import { currentWeatherData } from "../data/stores/WeatherDataStores";
 export const setColorTheme = async (data) => {
   let weatherCode = {};
   const unsub = currentWeatherData.subscribe((data) => {

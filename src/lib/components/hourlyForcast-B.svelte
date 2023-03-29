@@ -1,6 +1,6 @@
 <script>
   import HourlyForecast from "./hourlyForecast-C.svelte";
-  import { hourlyWeatherData } from "../data/WeatherDataStores.js";
+  import { hourlyWeatherData } from "../data/stores/WeatherDataStores.js";
 
   $: hourlyData = $hourlyWeatherData;
 </script>
