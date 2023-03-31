@@ -1,10 +1,14 @@
 <script>
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
+  import DailyForecast from "../components/DailyForecast-C.svelte";
 </script>
 
 <div class="grid">
   <div class="grid-element one" />
-  <div class="grid-element two bg-2" />
+  <div class="grid-element two bg-2">
+    <h4>Denne uge</h4>
+    <DailyForecast />
+  </div>
   <div class="grid-element three" />
   <div class="grid-element four bg-2">
     <h4>Time oversigt</h4>
@@ -32,6 +36,7 @@
   .two {
     grid-column: 2/3;
     grid-row: 1/3;
+    padding: 0 1rem;
   }
   .three {
     grid-column: 1/2;

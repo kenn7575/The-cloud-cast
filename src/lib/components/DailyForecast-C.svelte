@@ -1,23 +1,29 @@
 <script>
-import { DailyWeatherData } from "../data/stores/WeatherDataStores.js";
-import DailyForecast from "./DailyForecast-D.svelte";
+  import { dailyWeatherData } from "../data/stores/WeatherDataStores.js";
+  import DailyForecast from "./DailyForecast-D.svelte";
 
-
-$: DailyData = $DailyWeatherData;
+  $: DailyData = $dailyWeatherData;
+  $: console.log(DailyData);
 </script>
 
 <div class="rows">
-    {#if DailyData != null}
-        {#if DailyData.length === 0}
-        <p>Loading...</p>
-        {/if}
-        {#each DailyData as hour}
-        <DailyForecast
-            time={hour.time}
-            icon={hour.weathercode}
-            temp_max={hour.temp}
-            temp_min={hour.temp}
-        />
-        {/each}
+  {#if DailyData != null}
+    {#if DailyData.length === 0}
+      <p>Loading...</p>
     {/if}
+    {#each DailyData as hour}
+      <DailyForecast
+        time={hour.time}
+        icon={hour.weathercode}
+        temp_max={hour.temperature_max}
+        temp_min={hour.temperature_min}
+      />
+    {/each}
+  {/if}
 </div>
+
+<style>
+  .rows {
+    overflow-y: scroll;
+  }
+</style>

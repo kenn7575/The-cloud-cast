@@ -27,7 +27,9 @@
     <MediaQuery query="(min-width: 701px) and (max-width: 1280px)" let:matches>
       {#if matches}
         <!-- tablet -->
-        <TabletView />
+        <div class="tablet">
+          <TabletView />
+        </div>
       {/if}
     </MediaQuery>
 
@@ -58,6 +60,10 @@
     border-radius: 10px;
   }
   .deafult {
+    padding: 2rem;
+    height: 100%;
+  }
+  .tablet {
     padding: 2rem;
     height: 100%;
   }

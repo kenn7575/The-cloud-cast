@@ -1,5 +1,6 @@
 <script>
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
+  import DailyForecast from "../components/DailyForecast-C.svelte";
 </script>
 
 <div class="first">
@@ -11,11 +12,15 @@
     <h4>Time oversigt</h4>
     <HourlyForecast />
   </div>
-  <div class="four" />
+  <div class="four">
+    <h4>Denne uge</h4>
+    <DailyForecast />
+  </div>
 </div>
 
 <style>
   .first {
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 55% 38%;
