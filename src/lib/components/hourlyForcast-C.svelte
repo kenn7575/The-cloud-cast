@@ -27,7 +27,7 @@
     flex-wrap: nowrap;
     width: 100%;
     height: 140px;
-    overflow-x: scroll;
+    overflow-x: auto;
     gap: 5px;
     padding-bottom: 1rem;
   }
