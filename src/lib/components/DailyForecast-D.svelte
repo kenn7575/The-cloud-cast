@@ -51,4 +51,8 @@
   .min {
     color: var(--text-4);
   }
+  h5 {
+    font-weight: 400;
+    font-size: 0.85rem;
+  }
 </style>

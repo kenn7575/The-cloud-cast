@@ -41,7 +41,7 @@
   --background-2: #ffffff;
   --text-1: #ffffff;
   --text-2: #455a64;
-  --text-3: #000;
+  --text-3: rgba(0, 0, 0, 0.8);
   --text-4: rgba(0, 0, 0, 0.5);
   --background-3: #607d8b;
   --background-4: #cfd8dc;
@@ -66,21 +66,7 @@ body,
 #app {
   background-color: var(--background-1);
 }
-/* city name */
-h1 {
-  font-weight: 700;
-  font-size: 2.625em;
-}
-/* tempreture */
-h2 {
-  font-weight: 700;
-  font-size: 5.5em;
-}
-/* weather description */
-h3 {
-  font-weight: 500;
-  font-size: 1.375em;
-}
+
 /* component title */
 h4 {
   color: var(--text-2);

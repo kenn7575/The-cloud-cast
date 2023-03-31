@@ -5,7 +5,9 @@
 
 <div class="first">
   <div class="grid-element one " />
-  <div class="grid-element two " />
+  <div class="grid-element two ">
+    <HourlyForecast />
+  </div>
 </div>
 <div class="second bg-2">
   <div class="three">
@@ -31,14 +33,15 @@
     top: 2rem;
   }
   .second {
+    position: relative;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
     border-radius: 25px;
     gap: 2rem;
+    z-index: 1;
   }
-  .three {
-  }
+
   .four {
     min-height: 200px;
   }

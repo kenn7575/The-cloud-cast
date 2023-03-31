@@ -24,6 +24,7 @@
 
 <style>
   .rows {
+    height: 93%;
     overflow-y: scroll;
   }
 </style>
