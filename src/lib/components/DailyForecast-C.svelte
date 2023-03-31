@@ -3,7 +3,6 @@
   import DailyForecast from "./DailyForecast-D.svelte";
 
   $: DailyData = $dailyWeatherData;
-  $: console.log(DailyData);
 </script>
 
 <div class="rows">

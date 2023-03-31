@@ -18,6 +18,7 @@ const filterHourlyData = (data) => {
       temp: Math.round(temperature),
     });
   }
+  console.log(formatedData, "hourly");
   return formatedData;
 };
 const filterDailyData = (data) => {
@@ -36,6 +37,7 @@ const filterDailyData = (data) => {
       temperature_min: Math.round(temperature_min),
     });
   }
+  console.log(formatedData, "daily");
   return formatedData;
 };
 const filterCurrentData = (data) => {
@@ -44,18 +46,33 @@ const filterCurrentData = (data) => {
   const weathercode = data.current_weather.weathercode;
   const time = data.current_weather.time;
   const sunset = data.daily.sunset[0];
+  const sunsetFormat = sunset.split("T")[1];
   const sunrise = data.daily.sunrise[0];
+  const sunriseFormat = sunrise.split("T")[1];
   const windSpeed = data.current_weather.windspeed;
   const windDirection = data.current_weather.winddirection;
-  const rainSum = data.daily.rain_sum[0];
-  return {
+  const precipitation_sum = data.daily.precipitation_sum[0];
+  const apparent_temperature = data.hourly.apparent_temperature[0];
+  const precipitation_probability = data.hourly.precipitation_probability[0];
+  const uv = data.hourly.uv_index[0];
+
+  const filteredData = {
     temp: temp,
     weathercode: weathercode,
     time: time,
-    sunset: sunset,
-    sunrise: sunrise,
+    sunset: sunsetFormat,
+    sunrise: sunriseFormat,
     windSpeed: windSpeed,
     windDirection: windDirection,
-    rainSum: rainSum,
+    rainSum: precipitation_sum,
+    apparent_temperature: apparent_temperature,
+    precipitation_probability: precipitation_probability,
+    uv: uv,
   };
+<<<<<<< HEAD
 };
+=======
+  console.log(filteredData, "current");
+  return filteredData;
+};
+>>>>>>> 9f5cf25262960a54c984218541cc70783bd37f59
