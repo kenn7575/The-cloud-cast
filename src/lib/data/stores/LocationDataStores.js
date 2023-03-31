@@ -3,4 +3,4 @@ const lastSearchedCitys = writable();
 const currentLocation = writable();
 const Location = writable();
 
-export { lastSearchedCitys, currentLocation, Location };
+export { lastSearchedCitys, currentLocation };

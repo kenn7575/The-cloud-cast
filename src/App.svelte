@@ -4,6 +4,7 @@
   import TabletView from "./lib/views/tabletView.svelte";
   import MobileView from "./lib/views/mobileView.svelte";
   import LoadingSpinner from "./lib/components/loadingSpinner.svelte";
+  import ErrorScreen from "./lib/components/ErrorScreen.svelte";
 
   import { initBackend } from "./lib/services/BackendManager.js";
 </script>
@@ -38,7 +39,7 @@
     </MediaQuery>
   </div>
 {:catch error}
-  <h2>error</h2>
+  <ErrorScreen />
 {/await}
 
 <style>

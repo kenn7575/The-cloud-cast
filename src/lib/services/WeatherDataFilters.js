@@ -1,5 +1,5 @@
 import { formatDailyDate } from "./DateFormatter.js";
-export { filterHourlyData, filterCurrentData };
+export { filterHourlyData, filterCurrentData, filterDailyData };
 
 const filterHourlyData = (data) => {
   const d = new Date();

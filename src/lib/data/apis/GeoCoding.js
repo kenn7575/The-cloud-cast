@@ -12,7 +12,7 @@ const Decode = async (lat, lon) => {
   // );
   // const data = await response.json();
   // return { city: data.results[0].city, country: data.results[0].country };
-  return { city: "Copenhagen", country: "Denmark" };
+  return [{ city: "city", country: "Denmark" }];
 };
 export { Encode, Decode };
 

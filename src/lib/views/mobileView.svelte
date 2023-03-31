@@ -1,5 +1,5 @@
 <script>
-  import HourlyForecast from "../components/hourlyForcast-B.svelte";
+  import HourlyForecast from "../components/hourlyForcast-C.svelte";
 </script>
 
 <div class="first">
