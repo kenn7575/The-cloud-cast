@@ -69,10 +69,6 @@ const filterCurrentData = (data) => {
     precipitation_probability: precipitation_probability,
     uv: uv,
   };
-<<<<<<< HEAD
-};
-=======
   console.log(filteredData, "current");
   return filteredData;
 };
->>>>>>> 9f5cf25262960a54c984218541cc70783bd37f59
