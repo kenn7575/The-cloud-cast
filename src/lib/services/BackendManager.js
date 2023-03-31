@@ -30,7 +30,7 @@ import { Decode } from "../data/apis/GeoCoding.js";
 const initBackend = async () => {
   //get local storage data and update the store
   const location = await getEntryLocation();
-  console.log(location);
+  console.log(location, "location");
   //get weather data
   let colorTheme;
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
@@ -45,7 +45,6 @@ const initBackend = async () => {
       const filteredDailyData = filterDailyData(data);
       colorTheme = filteredCurrentData.weathercode;
       hourlyWeatherData.update(() => {
-        console.log(data);
         return filteredHourlyData;
       });
       dailyWeatherData.update(() => {
