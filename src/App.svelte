@@ -5,8 +5,10 @@
   import MobileView from "./lib/views/mobileView.svelte";
   import LoadingSpinner from "./lib/components/loadingSpinner.svelte";
   import ErrorScreen from "./lib/components/ErrorScreen.svelte";
-
+  import LoadingModal from "./lib/components/loadingModal.svelte";
   import { initBackend } from "./lib/services/BackendManager.js";
+  import { loadingModal } from "./lib/data/stores/Modals.js";
+  $: show = $loadingModal;
 </script>
 
 {#await initBackend()}
@@ -43,26 +45,11 @@
 {:catch error}
   <ErrorScreen />
 {/await}
-<div class="loading">
-  <div class="loading-screen">
-    <LoadingSpinner />
-  </div>
-</div>
+{#if show}
+  <LoadingModal />
+{/if}
 
 <style>
-  .loading {
-    z-index: 1;
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0005;
-  }
-
   .content {
     position: relative;
     height: 800px;
@@ -74,9 +61,6 @@
     right: 50%;
     transform: translate(50%, -50%);
     z-index: 100;
-    background: #fff;
-    padding: 3rem;
-    border-radius: 10px;
   }
   .deafult {
     padding: 2rem;

@@ -1,6 +1,5 @@
 <script>
   import { currentLocation } from "../data/stores/LocationDataStores.js";
-
   $: currentData = $currentLocation;
 </script>
 

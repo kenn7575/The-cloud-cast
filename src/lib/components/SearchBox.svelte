@@ -3,6 +3,7 @@
   import { PlaceAutoComplete } from "../data/apis/PlaceAutoComplete.js";
   import { GetAndUpdateWeather } from "../services/BackendManager.js";
   import MobileView from "../views/mobileView.svelte";
+  import { loadingModal } from "../data/stores/Modals.js";
 
   let searchRequest = "";
   let listOfCompletions = [];
@@ -15,6 +16,9 @@
     }
   }
   function updateWeather(place) {
+    loadingModal.update(() => {
+      return true;
+    });
     searchRequest = "";
     listOfCompletions = [];
     GetAndUpdateWeather({

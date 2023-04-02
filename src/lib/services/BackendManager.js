@@ -4,6 +4,7 @@ import { RetreiveWeatherData } from "../data/apis/RetreiveWeatherData.js";
 import { setColorTheme } from "./setColorThemeService.js";
 //gets cityes in the local storage
 import { getCities } from "../data/local/LocalStorageManager.js";
+import { loadingModal } from "../data/stores/Modals.js";
 //updates the store that relate to locations
 import {
   lastSearchedCitys,
@@ -64,6 +65,9 @@ const GetAndUpdateWeather = async (location) => {
       });
       currentWeatherData.update(() => {
         return filteredCurrentData;
+      });
+      loadingModal.update(() => {
+        return false;
       });
     });
   });
