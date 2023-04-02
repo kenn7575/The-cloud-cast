@@ -1,9 +1,4 @@
-import { currentWeatherData } from "../data/stores/WeatherDataStores";
-export const setColorTheme = async (data) => {
-  let weatherCode = {};
-  const unsub = currentWeatherData.subscribe((data) => {
-    weatherCode = data.weathercode;
-  });
+export const setColorTheme = async (weatherCode) => {
   switch (weatherCode) {
     case 0:
     case 1:
@@ -46,5 +41,4 @@ export const setColorTheme = async (data) => {
     default:
       document.querySelector("body").className = "blue";
   }
-  unsub();
 };

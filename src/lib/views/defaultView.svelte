@@ -1,20 +1,27 @@
 <script>
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
-  import CurrentForecast from "../components/CurrentForecast-C.svelte";
+  import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
+  import SearchBox from "../components/SearchBox.svelte";
+  import CurrentForecastMain from "../components/CurrentWeatherMain-C.svelte";
 </script>
 
 <div class="grid bg-1">
-  <div class="grid-element one bg-2" />
-  <div class="grid-element two" />
+  <div class="grid-element one bg-3">
+    <SearchBox />
+  </div>
+
+  <div class="grid-element two">
+    <CurrentForecastMain />
+  </div>
+
   <div class="grid-element three bg-2">
     <h4>Denne uge</h4>
     <DailyForecast />
   </div>
-  <div class="grid-element four " >
+  <div class="grid-element four ">
     <CurrentForecast />
-    
-    </div>
+  </div>
 
   <div class="grid-element five bg-2">
     <h4>Time oversigt</h4>
@@ -35,6 +42,7 @@
   .one {
     grid-column: 1/1;
     grid-row: 1/4;
+    display: flex;
   }
   .two {
     grid-column: 2/3;

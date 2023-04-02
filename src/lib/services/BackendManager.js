@@ -32,7 +32,13 @@ const initBackend = async () => {
   const location = await getEntryLocation();
   console.log(location, "location");
   //get weather data
-  let colorTheme;
+
+  await GetAndUpdateWeather(location);
+
+  console.log("done loading");
+  return true;
+};
+const GetAndUpdateWeather = async (location) => {
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
     //update the store with the weather data
     weatherData.update(() => {
@@ -43,9 +49,15 @@ const initBackend = async () => {
       const filteredHourlyData = filterHourlyData(data);
       const filteredCurrentData = filterCurrentData(data);
       const filteredDailyData = filterDailyData(data);
-      colorTheme = filteredCurrentData.weathercode;
+
+      const colorTheme = filteredCurrentData.weathercode;
+      setColorTheme(colorTheme);
       hourlyWeatherData.update(() => {
         return filteredHourlyData;
+      });
+      currentLocation.update(() => {
+        console.log(location, "currentLocation");
+        return location;
       });
       dailyWeatherData.update(() => {
         return filteredDailyData;
@@ -55,12 +67,8 @@ const initBackend = async () => {
       });
     });
   });
-
-  setColorTheme(colorTheme);
-
-  console.log("done loading");
-  return true;
 };
+
 const getEntryLocation = async () => {
   //get weather data
   let locationData;
@@ -99,4 +107,4 @@ const getEntryLocation = async () => {
   }
   return locationData;
 };
-export { initBackend };
+export { initBackend, GetAndUpdateWeather };

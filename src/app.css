@@ -76,7 +76,6 @@ h4 {
 }
 /* grid comtainer */
 .grid-element {
-  border: 1px solid var(--background-2);
   border-radius: 25px;
 }
 .bg-1 {

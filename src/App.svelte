@@ -43,9 +43,28 @@
 {:catch error}
   <ErrorScreen />
 {/await}
+<div class="loading">
+  <div class="loading-screen">
+    <LoadingSpinner />
+  </div>
+</div>
 
 <style>
+  .loading {
+    z-index: 1;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0005;
+  }
+
   .content {
+    position: relative;
     height: 800px;
     padding-bottom: calc(2rem + 4%);
   }
