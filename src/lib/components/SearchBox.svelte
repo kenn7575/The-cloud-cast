@@ -2,7 +2,7 @@
   import { filterPlaces } from "../services/FilterPlaceAutocompletions.js";
   import { PlaceAutoComplete } from "../data/apis/PlaceAutoComplete.js";
   import { GetAndUpdateWeather } from "../services/BackendManager.js";
-  import MobileView from "../views/mobileView.svelte";
+  import { addLocationToHistory } from "../services/updateLocalStorage.js";
   import { loadingModal } from "../data/stores/Modals.js";
 
   let searchRequest = "";
@@ -19,6 +19,7 @@
     loadingModal.update(() => {
       return true;
     });
+    addLocationToHistory(place);
     searchRequest = "";
     listOfCompletions = [];
     GetAndUpdateWeather({

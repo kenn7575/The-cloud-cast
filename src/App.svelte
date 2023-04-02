@@ -55,13 +55,6 @@
     height: 800px;
     padding-bottom: calc(2rem + 4%);
   }
-  .loading-screen {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    z-index: 100;
-  }
   .deafult {
     padding: 2rem;
     height: 100%;

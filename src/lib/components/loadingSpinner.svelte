@@ -21,8 +21,13 @@
 <style>
   .background {
     background: #fff;
-    margin: 3rem;
+    padding: 3rem;
     border-radius: 10px;
+
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
   }
   .spinner {
     -webkit-animation: rotator 1.4s linear infinite;
