@@ -18,7 +18,7 @@ const filterHourlyData = (data) => {
       temp: Math.round(temperature),
     });
   }
-  console.log(formatedData, "hourly");
+
   return formatedData;
 };
 const filterDailyData = (data) => {
@@ -37,7 +37,6 @@ const filterDailyData = (data) => {
       temperature_min: Math.round(temperature_min),
     });
   }
-  console.log(formatedData, "daily");
   return formatedData;
 };
 const filterCurrentData = (data) => {
@@ -69,6 +68,6 @@ const filterCurrentData = (data) => {
     precipitation_probability: precipitation_probability,
     uv: uv,
   };
-  console.log(filteredData, "current");
+
   return filteredData;
 };

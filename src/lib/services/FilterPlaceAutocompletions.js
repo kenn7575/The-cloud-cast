@@ -27,7 +27,7 @@ const filterPlaces = (data) => {
     };
     sortedList.push(place);
   });
-  console.log(sortedList);
+
   return sortedList;
 };
 export { filterPlaces };
@@ -55,6 +55,5 @@ function getIndexes(strList) {
       duplicates[currentString] = true;
     }
   }
-  console.log(nonDuplicateIndexes);
   return nonDuplicateIndexes;
 }

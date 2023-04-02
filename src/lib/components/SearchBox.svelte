@@ -12,7 +12,6 @@
     if (searchRequest.length > 2) {
       const results = await PlaceAutoComplete(searchRequest);
       listOfCompletions = filterPlaces(results);
-      console.log(listOfCompletions, 1);
     }
   }
   function updateWeather(place) {

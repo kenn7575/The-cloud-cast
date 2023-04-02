@@ -36,7 +36,6 @@ const initBackend = async () => {
 
   await GetAndUpdateWeather(location);
 
-  console.log("done loading");
   return true;
 };
 const GetAndUpdateWeather = async (location) => {
@@ -57,7 +56,6 @@ const GetAndUpdateWeather = async (location) => {
         return filteredHourlyData;
       });
       currentLocation.update(() => {
-        console.log(location, "currentLocation");
         return location;
       });
       dailyWeatherData.update(() => {
@@ -77,18 +75,25 @@ const getEntryLocation = async () => {
   //get weather data
   let locationData;
   let isConplete = false;
+  const cityHistory = getCities();
+  console.log(cityHistory, "data from local storage");
+  lastSearchedCitys.update(() => {
+    return cityHistory;
+  });
   let currentCordinates = await getCoordinates().catch(() => {
     //the user has not allowed the app to use the location
     //use the last searched city from the local storage
-    const cityHistory = getCities();
-    locationData = {
-      lat: cityHistory[0].lat,
-      lon: cityHistory[0].lon,
-      city: cityHistory[0].city,
-      country: cityHistory[0].country,
-    };
-    isConplete = true;
+    if (cityHistory) {
+      locationData = {
+        lat: cityHistory[0].lat,
+        lon: cityHistory[0].lon,
+        city: cityHistory[0].city,
+        country: cityHistory[0].country,
+      };
+      isConplete = true;
+    }
   });
+
   if (!isConplete) {
     let locationObject = await Decode(
       currentCordinates.latitude,
