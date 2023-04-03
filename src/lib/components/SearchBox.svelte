@@ -97,6 +97,7 @@
     border: none;
     background: transparent;
     cursor: pointer;
+    width: max-content;
   }
   .autocomplete ul {
     margin-top: 0;

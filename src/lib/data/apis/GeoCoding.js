@@ -15,7 +15,7 @@ const Decode = async (lat, lon) => {
   const path = data.features[0].properties;
   console.log(path);
 
-  return { city: path.city, country: path.country };
+  return [{ city: path.city, country: path.country }];
 
   return [{ city: "city", country: "Denmark" }];
 };

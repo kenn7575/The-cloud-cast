@@ -44,6 +44,7 @@
   </div>
 {:catch error}
   <ErrorScreen />
+  <p>{error}</p>
 {/await}
 {#if show}
   <LoadingModal />
