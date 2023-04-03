@@ -7,11 +7,16 @@ const Encode = async (cityName) => {
   // const data = await response.json();
 };
 const Decode = async (lat, lon) => {
-  // const response = await fetch(
-  //   `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&format=json&apiKey=15addd394224470e81489b234bb6a147`
-  // );
-  // const data = await response.json();
-  // return { city: data.results[0].city, country: data.results[0].country };
+  const response = await fetch(
+    `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=ea47387ed72e4b0db5092e389d23dd0c`
+  );
+  const data = await response.json();
+  console.log(data);
+  const path = data.features[0].properties;
+  console.log(path);
+
+  return { city: path.city, country: path.country };
+
   return [{ city: "city", country: "Denmark" }];
 };
 export { Encode, Decode };

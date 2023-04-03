@@ -75,8 +75,9 @@ const getEntryLocation = async () => {
   //get weather data
   let locationData;
   let isConplete = false;
+
+  //get last searched citys from logal storage
   const cityHistory = getCities();
-  console.log(cityHistory, "data from local storage");
   lastSearchedCitys.update(() => {
     return cityHistory;
   });
@@ -99,6 +100,9 @@ const getEntryLocation = async () => {
       currentCordinates.latitude,
       currentCordinates.longitude
     ).catch(() => {
+      //if the decode api fails
+      //
+      console.log("something went worng");
       const cityHistory = getCities();
       locationData = {
         lat: cityHistory[0].lat,
@@ -107,6 +111,7 @@ const getEntryLocation = async () => {
         country: cityHistory[0].country,
       };
     });
+
     locationData = {
       lat: currentCordinates.latitude,
       lon: currentCordinates.longitude,

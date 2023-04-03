@@ -1,12 +1,12 @@
 const PlaceAutoComplete = async (place) => {
-  /*var response = await fetch(
+  var response = await fetch(
     "https://api.geoapify.com/v1/geocode/autocomplete?text=" +
       place +
-      "&apiKey=ea47387ed72e4b0db5092e389d23dd0c"
+      "&apiKey=15addd394224470e81489b234bb6a147"
   );
   const data = await response.json();
   console.log(data, "data");
-  return data;*/
+  return data;
 
   return {
     type: "FeatureCollection",
