@@ -101,7 +101,7 @@ const getEntryLocation = async () => {
       currentCordinates.longitude
     ).catch(() => {
       //if the decode api fails
-      //
+
       console.log("something went worng");
       const cityHistory = getCities();
       locationData = {
@@ -110,14 +110,16 @@ const getEntryLocation = async () => {
         city: cityHistory[0].city,
         country: cityHistory[0].country,
       };
+      isConplete = true;
     });
-
-    locationData = {
-      lat: currentCordinates.latitude,
-      lon: currentCordinates.longitude,
-      city: locationObject[0].city,
-      country: locationObject[0].country,
-    };
+    if (!isConplete) {
+      locationData = {
+        lat: currentCordinates.latitude,
+        lon: currentCordinates.longitude,
+        city: locationObject[0].city,
+        country: locationObject[0].country,
+      };
+    }
   }
   return locationData;
 };
