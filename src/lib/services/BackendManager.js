@@ -46,6 +46,7 @@ const GetAndUpdateWeather = async (location) => {
     });
     //update child stores
     weatherData.subscribe((data) => {
+      console.log(data);
       const filteredHourlyData = filterHourlyData(data);
       const filteredCurrentData = filterCurrentData(data);
       const filteredDailyData = filterDailyData(data);
