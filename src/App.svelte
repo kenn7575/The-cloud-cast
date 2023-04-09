@@ -6,7 +6,7 @@
   import LoadingSpinner from "./lib/components/loadingSpinner.svelte";
   import ErrorScreen from "./lib/components/ErrorScreen.svelte";
   import LoadingModal from "./lib/components/loadingModal.svelte";
-  import { initBackend } from "./lib/services/BackendManager.js";
+  import { initBackend } from "./lib/services/BackendManager";
   import { loadingModal } from "./lib/data/stores/Modals.js";
   $: show = $loadingModal;
 </script>

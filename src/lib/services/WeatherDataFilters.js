@@ -1,4 +1,4 @@
-import { formatDailyDate } from "./DateFormatter.js";
+import { formatDailyDate } from "./DateFormatter";
 export { filterHourlyData, filterCurrentData, filterDailyData };
 
 const filterHourlyData = (data) => {

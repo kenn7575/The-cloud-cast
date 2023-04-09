@@ -1,7 +1,7 @@
 <script>
   import { filterPlaces } from "../services/FilterPlaceAutocompletions.js";
   import { PlaceAutoComplete } from "../data/apis/PlaceAutoComplete.js";
-  import { GetAndUpdateWeather } from "../services/BackendManager.js";
+  import { GetAndUpdateWeather } from "../services/BackendManager";
   import { addLocationToHistory } from "../services/updateLocalStorage.js";
   import { loadingModal } from "../data/stores/Modals.js";
 
