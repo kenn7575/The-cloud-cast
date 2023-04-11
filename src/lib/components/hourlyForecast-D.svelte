@@ -4,7 +4,7 @@
   export let temp;
 
   import { GetWeatherSympol } from "../services/IconTranslationService.js";
-  const svg = GetWeatherSympol(icon);
+  $: svg = GetWeatherSympol(icon);
 </script>
 
 <div class="flex">
