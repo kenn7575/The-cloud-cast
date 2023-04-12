@@ -1,4 +1,5 @@
 import { formatDailyDate } from "./DateFormatter.js";
+import { formatDirection } from "./WindDirectionTranslationService.js";
 export { filterHourlyData, filterCurrentData, filterDailyData };
 
 const filterHourlyData = (data) => {
@@ -37,19 +38,23 @@ const filterDailyData = (data) => {
       temperature_min: Math.round(temperature_min),
     });
   }
+  formatedData[0].time = "I dag";
   return formatedData;
 };
 const filterCurrentData = (data) => {
+  console.log(data, "tests data");
   //format: {temp: float, weathercode: int, time: string, sunset: string, sunrise: string, windSpeed: float, windDirection: int, rainSum: float}
   const temp = data.current_weather.temperature;
   const weathercode = data.current_weather.weathercode;
   const time = data.current_weather.time;
+
   const sunset = data.daily.sunset[0];
   const sunsetFormat = sunset.split("T")[1];
   const sunrise = data.daily.sunrise[0];
   const sunriseFormat = sunrise.split("T")[1];
   const windSpeed = data.current_weather.windspeed;
-  const windDirection = data.current_weather.winddirection;
+  const detailedWindDirection = data.current_weather.winddirection;
+  const windDirection = formatDirection(detailedWindDirection);
   const precipitation_sum = data.daily.precipitation_sum[0];
   const apparent_temperature = data.hourly.apparent_temperature[0];
   const precipitation_probability = data.hourly.precipitation_probability[0];
@@ -62,6 +67,7 @@ const filterCurrentData = (data) => {
     sunset: sunsetFormat,
     sunrise: sunriseFormat,
     windSpeed: windSpeed,
+    detailedWindDirection: detailedWindDirection,
     windDirection: windDirection,
     rainSum: precipitation_sum,
     apparent_temperature: apparent_temperature,
