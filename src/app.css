@@ -99,6 +99,17 @@ h4 {
 .t-2 {
   color: var(--text-2);
 }
+.icon-p {
+  fill: var(--background-4);
+  stroke: var(--background-4);
+}
+
+.icon-s {
+  fill: var(--background-4);
+  stroke: var(--background-4);
+}
+
+
 
 body {
   margin: 0;
