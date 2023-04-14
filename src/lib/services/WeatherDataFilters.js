@@ -43,7 +43,7 @@ const filterDailyData = (data) => {
 };
 const filterCurrentData = (data) => {
   //format: {temp: float, weathercode: int, time: string, sunset: string, sunrise: string, windSpeed: float, windDirection: int, rainSum: float}
-  const temp = data.current_weather.temperature;
+  const temp = Math.round(data.current_weather.temperature);
   const weathercode = data.current_weather.weathercode;
   const time = data.current_weather.time;
 

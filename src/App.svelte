@@ -68,7 +68,7 @@
     height: 100%;
   }
   .mobile {
-    margin: 0.5rem;
+    margin: 1rem;
     height: 100%;
   }
 </style>
