@@ -3,7 +3,7 @@
   import { sunRise } from "../../../public/icons/sunRise.js";
   import { windDirection } from "../../../public/icons/windDirection.js";
   import { windSpeed } from "../../../public/icons/windSpeed.js";
-  import { humidity } from "../../../public/icons/humidity.js";
+  import { apparent } from "../../../public/icons/apparent.js";
   import { rainSum } from "../../../public/icons/rainSum.js";
   import { precipitationProbability } from "../../../public/icons/precipitationProbability.js";
   import { uvIndex } from "../../../public/icons/uvIndex.js";
@@ -12,6 +12,7 @@
   // import CurrentForecast from "./CurrentForecast-D.svelte";
 
   $: CurrentForecast = $currentWeatherData;
+  $: console.log(CurrentForecast, "ddsfksbkv");
 </script>
 
 <div class="flex">
@@ -33,19 +34,53 @@
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      windDirection={CurrentForecast.detailedWindDirection}
       Title="Vind"
-      iconSvg={windDirection}
+      iconSvg={windSpeed}
       value={CurrentForecast.windSpeed + " m/s"}
       explanation={"Fra " + CurrentForecast.windDirection}
     />
   </div>
 
-  <div class="grid-template" />
-  <div class="grid-template" />
-  <div class="grid-template" />
-  <div class="grid-template" />
-  <div class="grid-template" />
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="Regn"
+      iconSvg={rainSum}
+      value={CurrentForecast.rainSum + " mm"}
+      explanation="I dag"
+    />
+  </div>
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="Regn"
+      iconSvg={precipitationProbability}
+      value={CurrentForecast.rainSum + "%"}
+      explanation="Chance for regn i dag"
+    />
+  </div>
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="Føles som"
+      iconSvg={apparent}
+      value={CurrentForecast.apparent_temperature + "°"}
+      explanation="Chance for regn i dag"
+    />
+  </div>
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="UV indeks"
+      iconSvg={uvIndex}
+      value={CurrentForecast.uv}
+      explanation={CurrentForecast.uv_clear_sky + " ved klar himmel"}
+    />
+  </div>
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="Luftfuktighet"
+      iconSvg={precipitationProbability}
+      value={CurrentForecast.humidity + "%"}
+      explanation="Lige nu"
+    />
+  </div>
 </div>
 
 <style>

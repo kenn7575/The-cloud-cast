@@ -1,4 +1,4 @@
-export const humidity = `<svg
+export const apparent = `<svg
 data-name="Layer 1"
 id="Layer_1"
 viewBox="0 0 64 64"

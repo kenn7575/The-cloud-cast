@@ -42,7 +42,6 @@ const filterDailyData = (data) => {
   return formatedData;
 };
 const filterCurrentData = (data) => {
-  console.log(data, "tests data");
   //format: {temp: float, weathercode: int, time: string, sunset: string, sunrise: string, windSpeed: float, windDirection: int, rainSum: float}
   const temp = data.current_weather.temperature;
   const weathercode = data.current_weather.weathercode;
@@ -57,9 +56,11 @@ const filterCurrentData = (data) => {
   const windDirection = formatDirection(detailedWindDirection);
   const precipitation_sum = data.daily.precipitation_sum[0];
   const apparent_temperature = data.hourly.apparent_temperature[0];
-  const precipitation_probability = data.hourly.precipitation_probability[0];
+  const precipitation_probability =
+    data.daily.precipitation_probability_mean[0];
   const uv = data.hourly.uv_index[0];
-
+  const uv_clear_sky = data.hourly.uv_index_clear_sky[0];
+  const humidity = data.hourly.relativehumidity_2m[0];
   const filteredData = {
     temp: temp,
     weathercode: weathercode,
@@ -73,7 +74,8 @@ const filterCurrentData = (data) => {
     apparent_temperature: apparent_temperature,
     precipitation_probability: precipitation_probability,
     uv: uv,
+    uv_clear_sky: uv_clear_sky,
+    humidity: humidity,
   };
-
   return filteredData;
 };

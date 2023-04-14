@@ -3,11 +3,10 @@
   export let iconSvg;
   export let value;
   export let explanation;
-  export let windDirection = 0;
 </script>
 
 <div class="card">
-  <div class="icon" style="transform: rotate({windDirection}deg)">
+  <div class="icon">
     {@html iconSvg}
   </div>
   <div class="content">
@@ -31,7 +30,7 @@
     width: 90px;
     height: 90px;
     position: absolute;
-    top: 25px;
+    top: 20px;
     right: 10px;
     opacity: 0.8;
   }
