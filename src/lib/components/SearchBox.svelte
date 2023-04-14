@@ -8,6 +8,9 @@
   let searchRequest = "";
   $: listOfCompletions = [];
   $: show = listOfCompletions.length > 0;
+  if (searchRequest.length === 0) {
+    listOfCompletions = [];
+  }
 
   async function handleSerchReqest() {
     if (searchRequest.length > 2) {
