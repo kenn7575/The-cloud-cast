@@ -38,7 +38,10 @@
     <MediaQuery query="(max-width: 700px)" let:matches>
       {#if matches}
         <!-- mobile -->
-        <MobileView />
+
+        <div class="mobile">
+          <MobileView />
+        </div>
       {/if}
     </MediaQuery>
   </div>
@@ -57,11 +60,15 @@
     padding-bottom: calc(2rem + 4%);
   }
   .deafult {
-    padding: 2rem;
+    margin: 2rem;
     height: 100%;
   }
   .tablet {
-    padding: 2rem;
+    margin: 1rem;
+    height: 100%;
+  }
+  .mobile {
+    margin: 0.5rem;
     height: 100%;
   }
 </style>

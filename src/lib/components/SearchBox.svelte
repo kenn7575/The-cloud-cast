@@ -6,7 +6,8 @@
   import { loadingModal } from "../data/stores/Modals.js";
 
   let searchRequest = "";
-  let listOfCompletions = [];
+  $: listOfCompletions = [];
+  $: show = listOfCompletions.length > 0;
 
   async function handleSerchReqest() {
     if (searchRequest.length > 2) {
@@ -53,7 +54,7 @@
       </svg>
     </button>
   </div>
-  <div class="autocomplete">
+  <div class="autocomplete {show}">
     <ul>
       {#each listOfCompletions as place (place.id)}
         <li>
@@ -112,5 +113,8 @@
   }
   .autocomplete ul li:hover {
     background: #ddd;
+  }
+  .false {
+    display: none;
   }
 </style>
