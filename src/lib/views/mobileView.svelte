@@ -1,12 +1,14 @@
 <script>
+  import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
+
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
 </script>
 
 <div class="first">
-  <div class="grid-element one " />
-  <div class="grid-element two ">
-    <HourlyForecast />
+  <div class="grid-element one" />
+  <div class="grid-element two">
+    <CurrentForecast mobileMode={true} />
   </div>
 </div>
 <div class="second bg-2">

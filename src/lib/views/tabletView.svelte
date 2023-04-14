@@ -1,4 +1,6 @@
 <script>
+  import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
+
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
 </script>
@@ -9,7 +11,9 @@
     <h4>Denne uge</h4>
     <DailyForecast />
   </div>
-  <div class="grid-element three" />
+  <div class="grid-element three">
+    <CurrentForecast />
+  </div>
   <div class="grid-element four bg-2">
     <h4>Time oversigt</h4>
 

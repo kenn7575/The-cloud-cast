@@ -7,23 +7,23 @@
 </script>
 
 <div class="grid bg-1">
-  <div class="grid-element one bg-3">
+  <div class="grid-element srearch bg-3">
     <SearchBox />
   </div>
 
-  <div class="grid-element two">
+  <div class="grid-element current-main">
     <CurrentForecastMain />
   </div>
 
-  <div class="grid-element three bg-2">
+  <div class="grid-element daily bg-2">
     <h4>Denne uge</h4>
     <DailyForecast />
   </div>
-  <div class="grid-element four ">
+  <div class="grid-element current-detail">
     <CurrentForecast />
   </div>
 
-  <div class="grid-element five bg-2">
+  <div class="grid-element hourly bg-2">
     <h4>Time oversigt</h4>
     <HourlyForecast />
   </div>
@@ -39,21 +39,25 @@
     height: 800px;
     padding-bottom: calc(2rem + 4%);
   }
-  .one {
+  .srearch {
     grid-column: 1/1;
     grid-row: 1/4;
     display: flex;
   }
-  .two {
+  .current-main {
     grid-column: 2/3;
     grid-row: 1/2;
   }
-  .three {
+  .daily {
     grid-column: 3/4;
     grid-row: 1/3;
     padding: 0 1rem;
   }
-  .five {
+  .current-detail {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .hourly {
     grid-column: 2/4;
     grid-row: 3/4;
     padding: 0 1rem;

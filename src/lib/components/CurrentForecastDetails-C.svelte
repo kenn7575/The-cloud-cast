@@ -10,28 +10,16 @@
   import CurrentForecastDetails from "./CurrentForecastDetails-D.svelte";
   import { currentWeatherData } from "../data/stores/WeatherDataStores";
   // import CurrentForecast from "./CurrentForecast-D.svelte";
-
+  export let mobileMode = false;
+  let size;
+  if (mobileMode) {
+    size = "small";
+  }
   $: CurrentForecast = $currentWeatherData;
   $: console.log(CurrentForecast, "ddsfksbkv");
 </script>
 
-<div class="flex">
-  <div class="grid-template">
-    <CurrentForecastDetails
-      Title="Solnedgang"
-      iconSvg={sunSet}
-      value={CurrentForecast.sunset}
-      explanation="I dag"
-    />
-  </div>
-  <div class="grid-template">
-    <CurrentForecastDetails
-      Title="Soloppgang"
-      iconSvg={sunRise}
-      value={CurrentForecast.sunrise}
-      explanation="I dag"
-    />
-  </div>
+<div class="flex {size}">
   <div class="grid-template">
     <CurrentForecastDetails
       Title="Vind"
@@ -62,7 +50,7 @@
       Title="Føles som"
       iconSvg={apparent}
       value={CurrentForecast.apparent_temperature + "°"}
-      explanation="Chance for regn i dag"
+      explanation=""
     />
   </div>
   <div class="grid-template">
@@ -81,6 +69,22 @@
       explanation="Lige nu"
     />
   </div>
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="Solnedgang"
+      iconSvg={sunSet}
+      value={CurrentForecast.sunset}
+      explanation="I dag"
+    />
+  </div>
+  <div class="grid-template">
+    <CurrentForecastDetails
+      Title="Soloppgang"
+      iconSvg={sunRise}
+      value={CurrentForecast.sunrise}
+      explanation="I dag"
+    />
+  </div>
 </div>
 
 <style>
@@ -97,9 +101,12 @@
     box-sizing: border-box;
     background-color: var(--background-3);
     border: 3px solid #fff;
-    height: calc(50% - 1rem);
+    height: calc(50% - 0.5rem);
     border-radius: 20px;
     min-width: 200px;
     color: var(--text-1);
+  }
+  .small .grid-template {
+    height: 100%;
   }
 </style>
