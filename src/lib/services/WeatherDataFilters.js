@@ -1,4 +1,5 @@
 import { formatDailyDate } from "./DateFormatter.js";
+import { formatDirection } from "./WindDirectionTranslationService.js";
 export { filterHourlyData, filterCurrentData, filterDailyData };
 
 const filterHourlyData = (data) => {
@@ -37,6 +38,7 @@ const filterDailyData = (data) => {
       temperature_min: Math.round(temperature_min),
     });
   }
+  formatedData[0].time = "I dag";
   return formatedData;
 };
 const filterCurrentData = (data) => {
@@ -44,17 +46,21 @@ const filterCurrentData = (data) => {
   const temp = data.current_weather.temperature;
   const weathercode = data.current_weather.weathercode;
   const time = data.current_weather.time;
+
   const sunset = data.daily.sunset[0];
   const sunsetFormat = sunset.split("T")[1];
   const sunrise = data.daily.sunrise[0];
   const sunriseFormat = sunrise.split("T")[1];
   const windSpeed = data.current_weather.windspeed;
-  const windDirection = data.current_weather.winddirection;
+  const detailedWindDirection = data.current_weather.winddirection;
+  const windDirection = formatDirection(detailedWindDirection);
   const precipitation_sum = data.daily.precipitation_sum[0];
   const apparent_temperature = data.hourly.apparent_temperature[0];
-  const precipitation_probability = data.hourly.precipitation_probability[0];
+  const precipitation_probability =
+    data.daily.precipitation_probability_mean[0];
   const uv = data.hourly.uv_index[0];
-
+  const uv_clear_sky = data.hourly.uv_index_clear_sky[0];
+  const humidity = data.hourly.relativehumidity_2m[0];
   const filteredData = {
     temp: temp,
     weathercode: weathercode,
@@ -62,12 +68,14 @@ const filterCurrentData = (data) => {
     sunset: sunsetFormat,
     sunrise: sunriseFormat,
     windSpeed: windSpeed,
+    detailedWindDirection: detailedWindDirection,
     windDirection: windDirection,
     rainSum: precipitation_sum,
     apparent_temperature: apparent_temperature,
     precipitation_probability: precipitation_probability,
     uv: uv,
+    uv_clear_sky: uv_clear_sky,
+    humidity: humidity,
   };
-
   return filteredData;
 };

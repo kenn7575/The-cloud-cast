@@ -100,16 +100,14 @@ h4 {
   color: var(--text-2);
 }
 .icon-p {
-  fill: var(--background-4);
-  stroke: var(--background-4);
+  fill: var(--background-1);
+  stroke: var(--background-1);
 }
 
 .icon-s {
   fill: var(--background-4);
   stroke: var(--background-4);
 }
-
-
 
 body {
   margin: 0;

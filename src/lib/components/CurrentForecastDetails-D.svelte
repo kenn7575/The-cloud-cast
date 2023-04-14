@@ -1,45 +1,64 @@
 <script>
-    export let Title;
-    export let iconSvg;
-    export let text1;
-    export let text2;
+  export let Title;
+  export let iconSvg;
+  export let value;
+  export let explanation;
 </script>
 
-<main>
-    <div class="card">
-        <div class="icon">
-            {@html iconSvg}
-        </div>
-        <p>{Title}</p>
-        
-        <div class="text">
-            <p>{text1}</p>
-            <p>{text2}</p>
-        </div>
-    </div>
+<div class="card">
+  <div class="icon">
+    {@html iconSvg}
+  </div>
+  <div class="content">
+    <h1>{Title}</h1>
 
-</main>
+    <div class="text">
+      <h2>{value}</h2>
+      <p>{explanation}</p>
+    </div>
+  </div>
+</div>
 
 <style>
-    .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 20px;
-        position: relative;
-        align-items: flex-start;
-        padding-left: 0.5rem;
-    } 
-    .icon {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-    }
+  .card {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0.5rem;
+    position: relative;
+  }
+  .icon {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    opacity: 0.8;
+  }
+  h1 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
 
-
-
-
+  .content {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 0.5rem;
+  }
 </style>
