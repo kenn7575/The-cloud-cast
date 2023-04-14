@@ -1,20 +1,22 @@
 <script>
   import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
-
+  import CurrentForecastMain from "../components/CurrentWeatherMain-C.svelte";
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
 </script>
 
 <div class="grid">
-  <div class="grid-element one" />
-  <div class="grid-element two bg-2">
+  <div class="grid-element current-main">
+    <CurrentForecastMain />
+  </div>
+  <div class="grid-element daily bg-2">
     <h4>Denne uge</h4>
     <DailyForecast />
   </div>
-  <div class="grid-element three">
+  <div class="grid-element current-detail">
     <CurrentForecast />
   </div>
-  <div class="grid-element four bg-2">
+  <div class="grid-element hourly bg-2">
     <h4>Time oversigt</h4>
 
     <HourlyForecast />
@@ -33,20 +35,21 @@
   .grid-element {
     border-radius: 25px;
   }
-  .one {
+  .current-main {
     grid-column: 1/2;
     grid-row: 1/2;
+    padding: 0.5rem;
   }
-  .two {
+  .daily {
     grid-column: 2/3;
     grid-row: 1/3;
     padding: 0 1rem;
   }
-  .three {
+  .current-detail {
     grid-column: 1/2;
     grid-row: 2/3;
   }
-  .four {
+  .hourly {
     grid-column: 1/3;
     grid-row: 3/4;
     padding: 0 1rem;

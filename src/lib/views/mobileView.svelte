@@ -1,29 +1,32 @@
 <script>
   import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
+  import CurrentForecastMain from "../components/CurrentWeatherMain-C.svelte";
 
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
 </script>
 
-<div class="first">
-  <div class="grid-element one" />
-  <div class="grid-element two">
+<div class="back">
+  <div class="grid-element current-main">
+    <CurrentForecastMain />
+  </div>
+  <div class="grid-element current-detail">
     <CurrentForecast mobileMode={true} />
   </div>
 </div>
-<div class="second bg-2">
-  <div class="three">
+<div class="overlay bg-2">
+  <div class="hourly">
     <h4>Time oversigt</h4>
     <HourlyForecast />
   </div>
-  <div class="four">
+  <div class="daily">
     <h4>Denne uge</h4>
     <DailyForecast />
   </div>
 </div>
 
 <style>
-  .first {
+  .back {
     margin-top: 2rem;
     display: grid;
     grid-template-columns: 100%;
@@ -34,7 +37,7 @@
     position: sticky;
     top: 2rem;
   }
-  .second {
+  .overlay {
     position: relative;
     padding: 0 1rem;
     display: flex;
@@ -42,9 +45,13 @@
     border-radius: 25px;
     gap: 2rem;
     z-index: 1;
+    margin-bottom: 1rem;
   }
 
-  .four {
+  .daily {
     min-height: 200px;
+  }
+  .current-main {
+    padding: 0.5rem;
   }
 </style>
