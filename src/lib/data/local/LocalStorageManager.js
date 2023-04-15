@@ -25,7 +25,10 @@ const getCities = () => {
         });
       }
     });
-
+    if (listOfcityObjects.length > 6) {
+      setCitys(listOfcityObjects.slice(0, 6));
+      return listOfcityObjects.slice(0, 6);
+    }
     return listOfcityObjects;
   } catch (error) {
     return null;
