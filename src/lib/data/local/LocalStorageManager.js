@@ -10,12 +10,20 @@ const getCities = () => {
     //split each object substring into object
     dataSplit.forEach((element) => {
       const parts = element.split("+");
-      listOfcityObjects.push({
-        city: parts[0],
-        country: parts[1],
-        lat: parts[2],
-        lon: parts[3],
-      });
+      //check if the object is valid before adding it to the list
+      if (
+        parts[0] !== undefined &&
+        parts[1] !== undefined &&
+        parts[2] !== undefined &&
+        parts[3] !== undefined
+      ) {
+        listOfcityObjects.push({
+          city: parts[0],
+          country: parts[1],
+          lat: parts[2],
+          lon: parts[3],
+        });
+      }
     });
 
     return listOfcityObjects;

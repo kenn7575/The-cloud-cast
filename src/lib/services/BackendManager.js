@@ -29,15 +29,21 @@ import {
 import { Decode } from "../data/apis/GeoCoding.js";
 
 const initBackend = async () => {
-  console.clear();
   const location = await getEntryLocation();
   console.log("getting weather for", location.city + "...");
-  await GetAndUpdateWeather(location);
+  await GetAndUpdateWeather(location)
+    .then(() => {
+      console.log("done");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 const GetAndUpdateWeather = async (location) => {
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
     //update the store with the weather data
+
     weatherData.update(() => {
       return result;
     });
@@ -96,23 +102,28 @@ const getEntryLocation = async () => {
   });
 
   if (currentCordinates) {
-    await Decode(currentCordinates.latitude, currentCordinates.longitude).then(
-      (result) => {
+    console.log("decoding current location...");
+
+    await Decode(currentCordinates.latitude, currentCordinates.longitude)
+      .then((result) => {
         if (result !== null && result !== undefined) {
           console.log("decoded current location successfully");
+
           currentLocation = {
             // @ts-ignore
-            country: result.country,
+            country: result[0].country,
             // @ts-ignore
-            city: result.city,
+            city: result[0].city,
             lat: currentCordinates.latitude,
             lon: currentCordinates.longitude,
           };
         } else {
           console.log("failed to decode current location");
         }
-      }
-    );
+      })
+      .catch((error) => {
+        console.log("failed to connect to geocoding api");
+      });
   }
 
   if (currentLocation) return currentLocation; //if the user has allowed the app to use the location
