@@ -17,14 +17,15 @@ const isUnique = (data, item) => {
 
 const addLocationToHistory = (location) => {
   lastSearchedCitys.update((data) => {
-    if (data === undefined) {
+    console.log(data);
+    if (data === undefined || data === null) {
       data = [location];
     } else {
       const isunique = isUnique(data, location);
 
       if (data.length < 6) {
         if (isunique) {
-          data.push(location);
+          data.unshift(location);
         }
       } else {
         if (isunique) {

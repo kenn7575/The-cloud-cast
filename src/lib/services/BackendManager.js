@@ -29,7 +29,6 @@ import {
 import { Decode } from "../data/apis/GeoCoding.js";
 
 const initBackend = async () => {
-  console.clear();
   const location = await getEntryLocation();
   console.log("getting weather for", location.city + "...");
   await GetAndUpdateWeather(location)
@@ -44,6 +43,7 @@ const initBackend = async () => {
 const GetAndUpdateWeather = async (location) => {
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
     //update the store with the weather data
+
     weatherData.update(() => {
       return result;
     });
