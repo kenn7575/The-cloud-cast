@@ -5,7 +5,7 @@ const PlaceAutoComplete = async (place) => {
       "&apiKey=15addd394224470e81489b234bb6a147"
   );
   const data = await response.json();
-  console.log(data, "data");
+
   return data;
 };
 export { PlaceAutoComplete };
