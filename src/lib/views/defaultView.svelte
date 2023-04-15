@@ -2,13 +2,13 @@
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
   import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
-  import SearchBox from "../components/SearchBox.svelte";
+  import LocationFinder from "../components/LocationFinder-C.svelte";
   import CurrentForecastMain from "../components/CurrentWeatherMain-C.svelte";
 </script>
 
 <div class="grid bg-1">
   <div class="grid-element srearch bg-3">
-    <SearchBox />
+    <LocationFinder />
   </div>
 
   <div class="grid-element current-main">

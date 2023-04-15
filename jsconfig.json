@@ -29,5 +29,5 @@
    * Use global.d.ts instead of compilerOptions.types
    * to avoid limiting type declarations.
    */
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/lib/wether_api/WeatherDataAccess.ts", "src/lib/data/HourlyWeatherDatajs", "src/lib/services/BackendManager.ts"]
+  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/lib/wether_api/WeatherDataAccess.ts", "src/lib/data/HourlyWeatherDatajs", "src/lib/services/BackendManager.js"]
 }

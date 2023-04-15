@@ -16,7 +16,6 @@
     size = "small";
   }
   $: CurrentForecast = $currentWeatherData;
-  $: console.log(CurrentForecast, "ddsfksbkv");
 </script>
 
 <div class="flex {size}">
@@ -50,7 +49,7 @@
       Title="Føles som"
       iconSvg={apparent}
       value={CurrentForecast.apparent_temperature + "°"}
-      explanation=""
+      explanation="På grund af vind"
     />
   </div>
   <div class="grid-template">
