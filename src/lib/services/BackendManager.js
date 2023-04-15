@@ -26,7 +26,7 @@ import {
   filterDailyData,
 } from "./WeatherDataFilters.js";
 //decodes the location to a city name
-import { decodeLocation } from "../services/decodeLocation.js";
+import { Decode } from "../data/apis/GeoCoding.js";
 
 const initBackend = async () => {
   console.clear();
@@ -96,24 +96,23 @@ const getEntryLocation = async () => {
   });
 
   if (currentCordinates) {
-    await decodeLocation(
-      currentCordinates.latitude,
-      currentCordinates.longitude
-    ).then((result) => {
-      if (result !== null && result !== undefined) {
-        console.log("decoded current location successfully");
-        currentLocation = {
-          // @ts-ignore
-          country: result.country,
-          // @ts-ignore
-          city: result.city,
-          lat: currentCordinates.latitude,
-          lon: currentCordinates.longitude,
-        };
-      } else {
-        console.log("failed to decode current location");
+    await Decode(currentCordinates.latitude, currentCordinates.longitude).then(
+      (result) => {
+        if (result !== null && result !== undefined) {
+          console.log("decoded current location successfully");
+          currentLocation = {
+            // @ts-ignore
+            country: result.country,
+            // @ts-ignore
+            city: result.city,
+            lat: currentCordinates.latitude,
+            lon: currentCordinates.longitude,
+          };
+        } else {
+          console.log("failed to decode current location");
+        }
       }
-    });
+    );
   }
 
   if (currentLocation) return currentLocation; //if the user has allowed the app to use the location
