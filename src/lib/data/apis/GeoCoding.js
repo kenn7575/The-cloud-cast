@@ -11,9 +11,8 @@ const Decode = async (lat, lon) => {
     `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=ea47387ed72e4b0db5092e389d23dd0c`
   );
   const data = await response.json();
-  console.log(data);
+
   const path = data.features[0].properties;
-  console.log(path);
 
   return [{ city: path.city, country: path.country }];
 

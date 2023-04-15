@@ -1,13 +1,27 @@
 <script>
   import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
   import CurrentForecastMain from "../components/CurrentWeatherMain-C.svelte";
-
+  import LocationFinder from "../components/LocationFinder-C.svelte";
   import HourlyForecast from "../components/hourlyForcast-C.svelte";
   import DailyForecast from "../components/DailyForecast-C.svelte";
+  import { x } from "../../../public/icons/x.js";
+  import { searchGlass } from "../../../public/icons/searchGlass.js";
+  import { fly } from "svelte/transition";
+  let visible = true;
 </script>
 
 <div class="back">
   <div class="grid-element current-main">
+    <button
+      on:click={() => {
+        visible = true;
+      }}
+    >
+      <div class="openSearchBtn">
+        {@html searchGlass}
+      </div>
+    </button>
+
     <CurrentForecastMain />
   </div>
   <div class="grid-element current-detail">
@@ -24,8 +38,51 @@
     <DailyForecast />
   </div>
 </div>
+{#if visible}
+  <div transition:fly={{ x: -200, duration: 500 }} class="searchbox bg-3">
+    <button
+      on:click={() => {
+        visible = false;
+      }}
+    >
+      <div class="closeSearchBtn">
+        {@html x}
+      </div>
+    </button>
+    <LocationFinder />
+  </div>
+{/if}
 
 <style>
+  button {
+    background: none;
+    border: none;
+  }
+  .searchbox {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: flex-start;
+    position: fixed;
+    height: 90vh;
+    width: 90%;
+    padding-top: 1rem;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+  }
+  .closeSearchBtn {
+    scale: 2.25;
+  }
+  .openSearchBtn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+  }
+
   .back {
     margin-top: 2rem;
     display: grid;

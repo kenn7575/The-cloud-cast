@@ -26,18 +26,15 @@ import {
   filterDailyData,
 } from "./WeatherDataFilters.js";
 //decodes the location to a city name
-import { Decode } from "../data/apis/GeoCoding.js";
+import { decodeLocation } from "../services/decodeLocation.js";
 
 const initBackend = async () => {
-  //get local storage data and update the store
+  console.clear();
   const location = await getEntryLocation();
-  console.log(location, "location");
-  //get weather data
-
+  console.log("getting weather for", location.city + "...");
   await GetAndUpdateWeather(location);
-
-  return true;
 };
+
 const GetAndUpdateWeather = async (location) => {
   await RetreiveWeatherData(location.lat, location.lon).then((result) => {
     //update the store with the weather data
@@ -46,7 +43,6 @@ const GetAndUpdateWeather = async (location) => {
     });
     //update child stores
     weatherData.subscribe((data) => {
-      console.log(data);
       const filteredHourlyData = filterHourlyData(data);
       const filteredCurrentData = filterCurrentData(data);
       const filteredDailyData = filterDailyData(data);
@@ -73,55 +69,61 @@ const GetAndUpdateWeather = async (location) => {
 };
 
 const getEntryLocation = async () => {
-  //get weather data
-  let locationData;
-  let isConplete = false;
+  let lastSearchedCityLocation; //this has a value if the user has not allowed the app to use the location and the local storage is not empty
+  let currentLocation; //this has a value if the user has allowed the app to use the location
 
-  //get last searched citys from logal storage
-  const cityHistory = getCities();
+  console.log("getting last searched cities...");
+  let cityHistory = getCities(); //get the last searched cities from the local storage
+
+  if (cityHistory) {
+    lastSearchedCityLocation = {
+      country: cityHistory[0].country,
+      city: cityHistory[0].city,
+      lat: cityHistory[0].lat,
+      lon: cityHistory[0].lon,
+    };
+  } else {
+    console.log("no last searched cities found");
+  }
+  //update the store with the last searched cities to be used thoughout the app
   lastSearchedCitys.update(() => {
     return cityHistory;
   });
+  console.log("getting current location...");
   let currentCordinates = await getCoordinates().catch(() => {
+    console.log("location blocked by the user");
     //the user has not allowed the app to use the location
-    //use the last searched city from the local storage
-    if (cityHistory) {
-      locationData = {
-        lat: cityHistory[0].lat,
-        lon: cityHistory[0].lon,
-        city: cityHistory[0].city,
-        country: cityHistory[0].country,
-      };
-      isConplete = true;
-    }
   });
 
-  if (!isConplete) {
-    let locationObject = await Decode(
+  if (currentCordinates) {
+    await decodeLocation(
       currentCordinates.latitude,
       currentCordinates.longitude
-    ).catch(() => {
-      //if the decode api fails
-
-      console.log("something went worng");
-      const cityHistory = getCities();
-      locationData = {
-        lat: cityHistory[0].lat,
-        lon: cityHistory[0].lon,
-        city: cityHistory[0].city,
-        country: cityHistory[0].country,
-      };
-      isConplete = true;
+    ).then((result) => {
+      if (result !== null && result !== undefined) {
+        console.log("decoded current location successfully");
+        currentLocation = {
+          // @ts-ignore
+          country: result.country,
+          // @ts-ignore
+          city: result.city,
+          lat: currentCordinates.latitude,
+          lon: currentCordinates.longitude,
+        };
+      } else {
+        console.log("failed to decode current location");
+      }
     });
-    if (!isConplete) {
-      locationData = {
-        lat: currentCordinates.latitude,
-        lon: currentCordinates.longitude,
-        city: locationObject[0].city,
-        country: locationObject[0].country,
-      };
-    }
   }
-  return locationData;
+
+  if (currentLocation) return currentLocation; //if the user has allowed the app to use the location
+  if (lastSearchedCityLocation) return lastSearchedCityLocation; //if the user has not allowed the app to use the location and the local storage is not empty
+  return {
+    country: "Danmark",
+    city: "Copenhagen",
+    lat: "55.6759",
+    lon: "12.5655",
+  }; //if the user has not allowed the app to use the location and the local storage is empty
 };
+
 export { initBackend, GetAndUpdateWeather };

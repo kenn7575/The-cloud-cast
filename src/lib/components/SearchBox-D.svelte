@@ -82,7 +82,7 @@
   .row {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
   }
   path {
     fill: #555;

@@ -54,8 +54,8 @@ const filterCurrentData = (data) => {
   const windSpeed = data.current_weather.windspeed;
   const detailedWindDirection = data.current_weather.winddirection;
   const windDirection = formatDirection(detailedWindDirection);
-  const precipitation_sum = data.daily.precipitation_sum[0];
-  const apparent_temperature = data.hourly.apparent_temperature[0];
+  const precipitation_sum = Math.round(data.daily.precipitation_sum[0]);
+  const apparent_temperature = Math.round(data.hourly.apparent_temperature[0]);
   const precipitation_probability =
     data.daily.precipitation_probability_mean[0];
   const uv = data.hourly.uv_index[0];
