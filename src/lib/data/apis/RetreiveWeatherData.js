@@ -10,4 +10,16 @@ const RetreiveWeatherData = async (lat, lon) => {
 
   return data;
 };
-export { RetreiveWeatherData };
+const RetreiveCurrentWeatherData = async (lat, lon) => {
+  var response = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=" +
+      lat +
+      "&longitude=" +
+      lon +
+      "&longitude=13.41&current_weather=true&timezone=Europe%2FBerlin"
+  );
+  const data = await response.json();
+
+  return data;
+};
+export { RetreiveWeatherData, RetreiveCurrentWeatherData };
