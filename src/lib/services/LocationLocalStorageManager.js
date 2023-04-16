@@ -18,6 +18,7 @@ const isUnique = (data, item) => {
 const addLocationToHistory = (location) => {
   lastSearchedCitys.update((data) => {
     console.log(data);
+
     if (data === undefined || data === null) {
       data = [location];
     } else {
@@ -35,7 +36,9 @@ const addLocationToHistory = (location) => {
       }
     }
     setCitys(data);
-
+    if (data.length > 6) {
+      data = data.slice(0, 6);
+    }
     return data;
   });
 };

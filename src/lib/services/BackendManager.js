@@ -1,5 +1,8 @@
 //gets the weather data from the api
-import { RetreiveWeatherData } from "../data/apis/RetreiveWeatherData.js";
+import {
+  RetreiveWeatherData,
+  RetreiveCurrentWeatherData,
+} from "../data/apis/RetreiveWeatherData.js";
 //sets the color theme
 import { setColorTheme } from "./setColorThemeService.js";
 //gets cityes in the local storage
@@ -9,6 +12,7 @@ import { loadingModal } from "../data/stores/Modals.js";
 import {
   lastSearchedCitys,
   currentLocation,
+  userLocation,
 } from "../data/stores/LocationDataStores.js";
 //gets the current location from the device
 import { getCoordinates } from "../data/local/CurrentLocationManager.js";
@@ -108,6 +112,14 @@ const getEntryLocation = async () => {
       .then((result) => {
         if (result !== null && result !== undefined) {
           console.log("decoded current location successfully");
+          userLocation.update(() => {
+            return {
+              country: result[0].country,
+              city: result[0].city,
+              lat: currentCordinates.latitude,
+              lon: currentCordinates.longitude,
+            };
+          });
 
           currentLocation = {
             // @ts-ignore

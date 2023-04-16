@@ -7,7 +7,7 @@
   import { x } from "../../../public/icons/x.js";
   import { searchGlass } from "../../../public/icons/searchGlass.js";
   import { fly } from "svelte/transition";
-  let visible = true;
+  let visible = false;
 </script>
 
 <div class="back">
