@@ -112,6 +112,7 @@ const getEntryLocation = async () => {
       .then((result) => {
         if (result !== null && result !== undefined) {
           console.log("decoded current location successfully");
+
           userLocation.update(() => {
             return {
               country: result[0].country,
