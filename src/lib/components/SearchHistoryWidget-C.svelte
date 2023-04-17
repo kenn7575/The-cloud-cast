@@ -1,6 +1,6 @@
 <script>
   import { RetreiveEssentialWeatherData } from "../data/apis/RetreiveWeatherData.js";
-  import { userLocation } from "../data/stores/LocationDataStores";
+  import { lastSearchedCitys } from "../data/stores/LocationDataStores";
   import { GetAndUpdateWeather } from "../services/BackendManager.js";
   import { addLocationToHistory } from "../services/LocationLocalStorageManager.js";
   import { loadingModal } from "../data/stores/Modals.js";
@@ -22,36 +22,39 @@
     });
   }
 
-  $: location = $userLocation;
+  $: location = $lastSearchedCitys;
+  $: console.log(location);
 </script>
 
 {#if location}
   <div class="container">
-    <h4>Min lokalitet</h4>
-    <button
-      on:click={() => {
-        updateWeather({
-          city: location.city,
-          country: location.country,
-          lat: location.lat,
-          lon: location.lon,
-        });
-      }}
-    >
-      <div class="content">
-        {#await RetreiveEssentialWeatherData(location.lat, location.lon)}
-          <p>Loading...</p>
-        {:then weather}
-          <div class="text">
-            <h2>{location.city}</h2>
-            <h1>{Math.round(weather.current_weather["temperature"])}°</h1>
-          </div>
-          <div class="svg">
-            {@html GetWeatherSympol(weather.current_weather["weathercode"])}
-          </div>
-        {/await}
-      </div>
-    </button>
+    <h4>Seneste</h4>
+    {#each location as location}
+      <button
+        on:click={() => {
+          updateWeather({
+            city: location.city,
+            country: location.country,
+            lat: location.lat,
+            lon: location.lon,
+          });
+        }}
+      >
+        <div class="content">
+          {#await RetreiveEssentialWeatherData(location.lat, location.lon)}
+            <p>Loading...</p>
+          {:then weather}
+            <div class="text">
+              <h2>{location.city}</h2>
+              <h1>{Math.round(weather.current_weather["temperature"])}°</h1>
+            </div>
+            <div class="svg">
+              {@html GetWeatherSympol(weather.current_weather["weathercode"])}
+            </div>
+          {/await}
+        </div>
+      </button>
+    {/each}
   </div>
 {/if}
 
@@ -69,7 +72,6 @@
     background-color: var(--background-1);
     display: flex;
     width: 100%;
-
     text-align: center;
     border-radius: 25px;
     height: 8rem;

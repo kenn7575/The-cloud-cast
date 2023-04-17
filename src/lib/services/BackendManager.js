@@ -1,8 +1,5 @@
 //gets the weather data from the api
-import {
-  RetreiveWeatherData,
-  RetreiveCurrentWeatherData,
-} from "../data/apis/RetreiveWeatherData.js";
+import { RetreiveWeatherData } from "../data/apis/RetreiveWeatherData.js";
 //sets the color theme
 import { setColorTheme } from "./setColorThemeService.js";
 //gets cityes in the local storage
