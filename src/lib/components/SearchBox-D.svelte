@@ -32,6 +32,11 @@
       country: place.country,
     });
   }
+  function handleSearchBtn() {
+    if (listOfCompletions.length > 0) {
+      updateWeather(listOfCompletions[0]);
+    }
+  }
 </script>
 
 <div class="search-box">
@@ -44,7 +49,7 @@
       id="input-box"
       autocomplete="off"
     />
-    <button>
+    <button on:click={handleSearchBtn}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 64 64"
@@ -62,6 +67,7 @@
       {#each listOfCompletions as place (place.id)}
         <li>
           <button
+            class="show-weather"
             on:click={() => {
               updateWeather(place);
             }}
@@ -102,6 +108,8 @@
     border: none;
     background: transparent;
     cursor: pointer;
+  }
+  .show-weather {
     width: 100%;
     padding: 15px;
     text-align: start;

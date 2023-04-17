@@ -4,6 +4,7 @@
   import { GetAndUpdateWeather } from "../services/BackendManager.js";
   import { addLocationToHistory } from "../services/LocationLocalStorageManager.js";
   import { loadingModal } from "../data/stores/Modals.js";
+  import { GetWeatherSympol } from "../services/IconTranslationService.js";
 
   function updateWeather(place) {
     loadingModal.update(() => {
@@ -22,40 +23,72 @@
 </script>
 
 {#if location}
-  <button
-    on:click={() => {
-      updateWeather({
-        city: location.city,
-        country: location.country,
-        lat: location.lat,
-        lon: location.lon,
-      });
-    }}
-  >
-    <div class="content">
-      <h2>{location.city}</h2>
-      {#if location !== undefined}
-        {#await RetreiveCurrentWeatherData(location.lat, location.lon)}
-          <p>Loading...</p>
-        {:then weather}
-          <h2>{Math.round(weather.current_weather["temperature"])}°</h2>
-        {/await}
-      {/if}
-    </div>
-  </button>
+  <div class="container">
+    <h4>Min lokalitet</h4>
+    <button
+      on:click={() => {
+        updateWeather({
+          city: location.city,
+          country: location.country,
+          lat: location.lat,
+          lon: location.lon,
+        });
+      }}
+    >
+      <div class="content">
+        {#if location !== undefined}
+          {#await RetreiveCurrentWeatherData(location.lat, location.lon)}
+            <p>Loading...</p>
+          {:then weather}
+            <div class="text">
+              <h2>{location.city}</h2>
+              <h1>{Math.round(weather.current_weather["temperature"])}°</h1>
+            </div>
+            <div class="svg">
+              {@html GetWeatherSympol(weather.current_weather["weathercode"])}
+            </div>
+          {/await}
+        {/if}
+      </div>
+    </button>
+  </div>
 {/if}
 
 <style>
+  .svg {
+    min-width: 6rem;
+    min-height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .content {
+    color: var(--text-1);
     box-sizing: border-box;
-    background-color: var(--background-2);
+    background-color: var(--background-1);
     display: flex;
     width: 100%;
-    flex-direction: column;
-    text-align: start;
+
+    text-align: center;
     border-radius: 25px;
     height: 8rem;
-    padding: 0.5rem;
+    padding: 1rem;
+    margin: 0;
+    justify-content: space-between;
+    border: var(--text-1) solid 5px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .container {
+    box-sizing: border-box;
+    background: var(--background-2);
+    width: 100%;
+    margin-top: 2rem;
+    border-radius: 25px;
   }
   button {
     width: 100%;
@@ -64,6 +97,14 @@
     outline: none;
     padding: 0;
     cursor: pointer;
-    margin-top: 2rem;
+  }
+
+  h2,
+  h1 {
+    margin: 0;
+  }
+  h4 {
+    margin: 0.5rem;
+    margin-top: 0.8rem;
   }
 </style>
