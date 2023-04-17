@@ -10,7 +10,7 @@ const RetreiveWeatherData = async (lat, lon) => {
 
   return data;
 };
-const RetreiveCurrentWeatherData = async (lat, lon) => {
+const RetreiveEssentialWeatherData = async (lat, lon) => {
   var response = await fetch(
     "https://api.open-meteo.com/v1/forecast?latitude=" +
       lat +
@@ -22,4 +22,4 @@ const RetreiveCurrentWeatherData = async (lat, lon) => {
 
   return data;
 };
-export { RetreiveWeatherData, RetreiveCurrentWeatherData };
+export { RetreiveWeatherData, RetreiveEssentialWeatherData };

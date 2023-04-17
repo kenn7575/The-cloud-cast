@@ -7,14 +7,17 @@
   import { x } from "../../../public/icons/x.js";
   import { searchGlass } from "../../../public/icons/searchGlass.js";
   import { fly } from "svelte/transition";
-  let visible = false;
+  import { LocationFinderModal } from "../data/stores/Modals.js";
+  $: visible = $LocationFinderModal;
 </script>
 
 <div class="back">
   <div class="grid-element current-main">
     <button
       on:click={() => {
-        visible = true;
+        LocationFinderModal.update(() => {
+          return true;
+        });
       }}
     >
       <div class="openSearchBtn">
@@ -64,8 +67,10 @@
     align-items: self-start;
     justify-content: flex-start;
     position: fixed;
-    height: 90vh;
-    width: 90%;
+    height: 100vh;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
     padding-top: 1rem;
     top: 50%;
     left: 50%;
@@ -73,7 +78,8 @@
     transform: translate(-50%, -50%);
   }
   .closeSearchBtn {
-    scale: 2.25;
+    margin: 1rem 0 1rem 1rem;
+    scale: 2.5;
   }
   .openSearchBtn {
     position: fixed;

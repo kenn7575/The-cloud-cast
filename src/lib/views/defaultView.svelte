@@ -7,7 +7,7 @@
 </script>
 
 <div class="grid bg-1">
-  <div class="grid-element srearch bg-3">
+  <div class="grid-element srearch bg-4">
     <LocationFinder />
   </div>
 
