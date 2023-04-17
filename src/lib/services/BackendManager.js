@@ -56,6 +56,7 @@ const GetAndUpdateWeather = async (location) => {
       const filteredHourlyData = filterHourlyData(data);
       const filteredCurrentData = filterCurrentData(data);
       const filteredDailyData = filterDailyData(data);
+      console.log(data);
 
       const colorTheme = filteredCurrentData.weathercode;
       setColorTheme(colorTheme);
@@ -112,6 +113,7 @@ const getEntryLocation = async () => {
       .then((result) => {
         if (result !== null && result !== undefined) {
           console.log("decoded current location successfully");
+
           userLocation.update(() => {
             return {
               country: result[0].country,

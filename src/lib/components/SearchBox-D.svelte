@@ -64,8 +64,9 @@
           <button
             on:click={() => {
               updateWeather(place);
-            }}>{place.city}, {place.country}</button
-          >
+            }}
+            >{place.city}, {place.country}
+          </button>
         </li>
       {/each}
     </ul>
@@ -101,7 +102,9 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    width: max-content;
+    width: 100%;
+    padding: 15px;
+    text-align: start;
   }
   .autocomplete ul {
     margin-top: 0;
@@ -111,7 +114,7 @@
   .autocomplete ul li {
     list-style: none;
     border-radius: 3px;
-    padding: 15px;
+
     cursor: pointer;
   }
   .autocomplete ul li:hover {
