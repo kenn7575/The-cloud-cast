@@ -56,6 +56,7 @@ const GetAndUpdateWeather = async (location) => {
       const filteredHourlyData = filterHourlyData(data);
       const filteredCurrentData = filterCurrentData(data);
       const filteredDailyData = filterDailyData(data);
+      console.log(data);
 
       const colorTheme = filteredCurrentData.weathercode;
       setColorTheme(colorTheme);

@@ -6,7 +6,9 @@
 
 <div class="content">
   <SearchBox />
+
   <CurrentLocationWidget />
+  <!-- This will only show if the user has allowed location -->
 </div>
 
 <style>

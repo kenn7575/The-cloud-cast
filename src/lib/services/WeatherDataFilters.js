@@ -41,7 +41,10 @@ const filterDailyData = (data) => {
   formatedData[0].time = "I dag";
   return formatedData;
 };
+
 const filterCurrentData = (data) => {
+  const d = new Date();
+  const hour = d.getHours();
   //format: {temp: float, weathercode: int, time: string, sunset: string, sunrise: string, windSpeed: float, windDirection: int, rainSum: float}
   const temp = Math.round(data.current_weather.temperature);
   const weathercode = data.current_weather.weathercode;
@@ -51,16 +54,18 @@ const filterCurrentData = (data) => {
   const sunsetFormat = sunset.split("T")[1];
   const sunrise = data.daily.sunrise[0];
   const sunriseFormat = sunrise.split("T")[1];
-  const windSpeed = data.current_weather.windspeed;
+  const windSpeed = Math.round(data.current_weather.windspeed);
   const detailedWindDirection = data.current_weather.winddirection;
   const windDirection = formatDirection(detailedWindDirection);
   const precipitation_sum = Math.round(data.daily.precipitation_sum[0]);
-  const apparent_temperature = Math.round(data.hourly.apparent_temperature[0]);
+  const apparent_temperature = Math.round(
+    data.hourly.apparent_temperature[hour]
+  );
   const precipitation_probability =
     data.daily.precipitation_probability_mean[0];
-  const uv = data.hourly.uv_index[0];
-  const uv_clear_sky = data.hourly.uv_index_clear_sky[0];
-  const humidity = data.hourly.relativehumidity_2m[0];
+  const uv = Math.round(data.hourly.uv_index[hour]);
+  const uv_clear_sky = Math.round(data.hourly.uv_index_clear_sky[hour]);
+  const humidity = data.hourly.relativehumidity_2m[hour];
   const filteredData = {
     temp: temp,
     weathercode: weathercode,

@@ -62,7 +62,7 @@
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Luftfuktighet"
+      Title="Luftfugtighed"
       iconSvg={precipitationProbability}
       value={CurrentForecast.humidity + "%"}
       explanation="Lige nu"

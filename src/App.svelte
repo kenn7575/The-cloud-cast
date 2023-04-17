@@ -9,7 +9,7 @@
   import { initBackend } from "./lib/services/BackendManager.js";
   import { loadingModal } from "./lib/data/stores/Modals.js";
   import { lastSearchedCitys } from "./lib/data/stores/LocationDataStores.js";
-  $: console.log($lastSearchedCitys);
+
   $: show = $loadingModal;
 </script>
 

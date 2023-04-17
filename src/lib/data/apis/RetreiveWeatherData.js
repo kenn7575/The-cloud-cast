@@ -19,7 +19,7 @@ const RetreiveCurrentWeatherData = async (lat, lon) => {
       "&longitude=13.41&current_weather=true&timezone=Europe%2FBerlin"
   );
   const data = await response.json();
-  console.log(data, "this is the data");
+
   return data;
 };
 export { RetreiveWeatherData, RetreiveCurrentWeatherData };
