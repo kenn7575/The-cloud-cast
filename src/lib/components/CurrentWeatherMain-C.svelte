@@ -40,14 +40,14 @@
     margin: 0;
   }
   .icon {
-    width: 16rem;
+    width: 14rem;
   }
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
   }
   h1 {

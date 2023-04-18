@@ -4,6 +4,7 @@
   import { GetAndUpdateWeather } from "../services/BackendManager.js";
   import { addLocationToHistory } from "../services/LocationLocalStorageManager.js";
   import { loadingModal } from "../data/stores/Modals.js";
+  import { LocationFinderModal } from "../data/stores/Modals.js";
 
   let searchRequest = "";
   $: listOfCompletions = [];
@@ -30,6 +31,9 @@
       lon: place.lon,
       city: place.city,
       country: place.country,
+    });
+    LocationFinderModal.update((bool) => {
+      return !bool;
     });
   }
   function handleSearchBtn() {

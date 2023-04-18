@@ -9,17 +9,17 @@
   import { fly } from "svelte/transition";
   import { LocationFinderModal } from "../data/stores/Modals.js";
   $: visible = $LocationFinderModal;
+  $: console.log(visible);
+  function toggleMenu() {
+    LocationFinderModal.update((bool) => {
+      return !bool;
+    });
+  }
 </script>
 
 <div class="back">
   <div class="grid-element current-main">
-    <button
-      on:click={() => {
-        LocationFinderModal.update(() => {
-          return true;
-        });
-      }}
-    >
+    <button class="searchBtn" on:click={toggleMenu}>
       <div class="openSearchBtn">
         {@html searchGlass}
       </div>
@@ -43,11 +43,7 @@
 </div>
 {#if visible}
   <div transition:fly={{ x: -200, duration: 500 }} class="searchbox bg-3">
-    <button
-      on:click={() => {
-        visible = false;
-      }}
-    >
+    <button class="btn" on:click={toggleMenu}>
       <div class="closeSearchBtn">
         {@html x}
       </div>
@@ -78,15 +74,20 @@
     transform: translate(-50%, -50%);
   }
   .closeSearchBtn {
-    margin: 1rem 0 1rem 1rem;
+    margin: 2rem 0 1rem 0.5rem;
     scale: 2.5;
+    cursor: pointer;
   }
-  .openSearchBtn {
+  .btn {
+    width: 40px;
+  }
+  button.searchBtn {
     position: fixed;
     top: 30px;
     right: 30px;
     width: 50px;
     height: 50px;
+    cursor: pointer;
   }
 
   .back {
@@ -116,5 +117,6 @@
   }
   .current-main {
     padding: 0.5rem;
+    overflow: hidden;
   }
 </style>
