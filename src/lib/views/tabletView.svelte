@@ -64,15 +64,15 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 100;
   }
   .close {
     position: absolute;
     top: 0;
-    right: -50px;
-    width: 50px;
-    height: 50px;
+    right: -70px;
+    width: 70px;
+    height: 70px;
     border-radius: 25px;
   }
   .closeBtn {

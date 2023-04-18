@@ -74,19 +74,19 @@
     transform: translate(-50%, -50%);
   }
   .closeSearchBtn {
-    margin: 2rem 0 1rem 0.5rem;
-    scale: 2.5;
+    margin-top: 2rem;
+
     cursor: pointer;
   }
   .btn {
-    width: 40px;
+    width: 70px;
   }
   button.searchBtn {
     position: fixed;
-    top: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
+    top: 10px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
   }
 
