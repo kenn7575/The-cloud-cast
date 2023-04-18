@@ -22,7 +22,7 @@ export function GetWeatherSympol(weather) {
       return fewClouds;
     case 2:
       //partly cloudy
-      return overcast;
+      return fewClouds;
     case 3:
       //overcast
       return overcast;

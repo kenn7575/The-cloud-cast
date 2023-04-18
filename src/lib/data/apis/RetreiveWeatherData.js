@@ -16,7 +16,7 @@ const RetreiveEssentialWeatherData = async (lat, lon) => {
       lat +
       "&longitude=" +
       lon +
-      "&longitude=13.41&current_weather=true&timezone=Europe%2FBerlin"
+      "&current_weather=true&windspeed_unit=ms&forecast_days=14&timezone=Europe%2FBerlin"
   );
   const data = await response.json();
 
