@@ -20,6 +20,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SVELTE_WETHER_SITE }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_TOKEN }}"
           channelId: live
-          projectId: svelte-wether-site
+          projectId: the-cloud-cast
