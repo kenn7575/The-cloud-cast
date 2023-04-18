@@ -24,7 +24,6 @@
   }
 
   $: locations = $lastSearchedCitys;
-  $: console.log(location);
 </script>
 
 {#if locations}
