@@ -27,11 +27,31 @@ const addLocationToHistory = (location) => {
       if (data.length < 6) {
         if (isunique) {
           data.unshift(location);
+        } else {
+          //swap the location to the top of the list based on location.city + location.country
+          const index = data.findIndex((element) => {
+            return (
+              element.city + element.country ===
+              location.city + location.country
+            );
+          });
+          data.splice(index, 1);
+          data.unshift(location);
         }
       } else {
         if (isunique) {
           data.slice(0, 4);
-          data.push(location);
+          data.unshift(location);
+        } else {
+          //swap the location to the top of the list based on location.city + location.country
+          const index = data.findIndex((element) => {
+            return (
+              element.city + element.country ===
+              location.city + location.country
+            );
+          });
+          data.splice(index, 1);
+          data.unshift(location);
         }
       }
     }

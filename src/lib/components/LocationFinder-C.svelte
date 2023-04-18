@@ -32,7 +32,5 @@
     height: 100%;
     max-height: 100%;
     overflow: auto;
-    outline: solid var(--text-1) 5px;
-    outline-offset: -5px;
   }
 </style>

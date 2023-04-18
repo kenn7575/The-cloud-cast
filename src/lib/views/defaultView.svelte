@@ -43,6 +43,8 @@
     grid-column: 1/1;
     grid-row: 1/4;
     display: flex;
+    outline: solid var(--text-1) 5px;
+    outline-offset: -5px;
   }
   .current-main {
     grid-column: 2/3;
