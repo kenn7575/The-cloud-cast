@@ -14,6 +14,7 @@
       return true;
     });
     addLocationToHistory(place);
+    console.log(place, "place");
     GetAndUpdateWeather({
       lat: place.lat,
       lon: place.lon,
@@ -22,14 +23,14 @@
     });
   }
 
-  $: location = $lastSearchedCitys;
+  $: locations = $lastSearchedCitys;
   $: console.log(location);
 </script>
 
-{#if location}
+{#if locations}
   <div class="container">
     <h4>Seneste</h4>
-    {#each location as location}
+    {#each locations as location}
       <button
         on:click={() => {
           updateWeather({
