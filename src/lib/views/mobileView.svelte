@@ -42,7 +42,7 @@
   </div>
 </div>
 {#if visible}
-  <div transition:fly={{ x: -200, duration: 500 }} class="searchbox bg-3">
+  <div transition:fly={{ x: -200, duration: 500 }} class="searchbox bg-1">
     <button class="btn" on:click={toggleMenu}>
       <div class="closeSearchBtn">
         {@html x}
