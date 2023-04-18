@@ -32,5 +32,6 @@
     height: 100%;
     max-height: 100%;
     overflow: auto;
+    background: #cfd8dc;
   }
 </style>
