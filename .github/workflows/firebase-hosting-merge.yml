@@ -2,24 +2,19 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-on:
+'on':
   push:
     branches:
       - main
-
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: actions/setup-node@master
-        with:
-          node-version: 16
-      - run: npm install
+      - uses: actions/checkout@v2
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_TOKEN }}"
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_THE_CLOUD_CAST }}'
           channelId: live
           projectId: the-cloud-cast
