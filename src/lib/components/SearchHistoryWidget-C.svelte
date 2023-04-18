@@ -62,9 +62,6 @@
   .svg {
     min-width: 6rem;
     min-height: 6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   .content {
     color: var(--text-1);
