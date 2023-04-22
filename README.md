@@ -15,7 +15,7 @@
 - [Github and hosting](#Github-and-hosting)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
-<!-- * [License](#license) -->
+- [License](#license)
 
 ## General Information
 
@@ -88,7 +88,5 @@ This project:
 Created by [Kenni Kollemorten](https://kenni-kollemorten.dk/) and [David Sørensen](https://github.com/davidsorensenn) - feel free to contact me on [e-mail](mailto:info@kenni-kollemorten.dk)
 
 <!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
+## License
+This project is open source and available under conditions of the apache 2.0 license 
