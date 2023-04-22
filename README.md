@@ -22,7 +22,7 @@
 The Purpose of this project was to learn svelte, as well as learning about REST API's and system architecture on the web.
 This Project was developed by:
 
-- Project manager [_Kenni(me)_](https://github.com/kenn7575)
+- Project manager [_Kenni (me)_](https://github.com/kenn7575)
 - Jusior developer [_David_](https://github.com/davidsorensenn).
 
 ## Technologies Used
@@ -85,7 +85,7 @@ This project:
 
 ## Contact
 
-Created by [Kenni Kollemorten](https://kenni-kollemorten.dk/) and [David Sørensen](https://github.com/davidsorensenn)- feel free to contact me on [e-mail](mailto:someone@example.com)
+Created by [Kenni Kollemorten](https://kenni-kollemorten.dk/) and [David Sørensen](https://github.com/davidsorensenn) - feel free to contact me on [e-mail](mailto:info@kenni-kollemorten.dk)
 
 <!-- Optional -->
 <!-- ## License -->
