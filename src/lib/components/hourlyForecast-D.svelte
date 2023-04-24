@@ -2,9 +2,11 @@
   export let time;
   export let icon;
   export let temp;
+  export let sunset;
+  export let sunrise;
 
   import { GetWeatherSympol } from "../services/IconTranslationService.js";
-  $: svg = GetWeatherSympol(icon);
+  $: svg = GetWeatherSympol(icon, sunrise, sunset, time);
 </script>
 
 <div class="flex">
