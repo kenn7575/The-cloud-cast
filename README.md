@@ -7,6 +7,7 @@
 
 - [General Info](#general-information)
 - [Technologies Used](#technologies-used)
+- [Apis Used](#Apis-Used)
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Structure](#Structure)
@@ -23,14 +24,20 @@ The Purpose of this project was to learn svelte, as well as learning about REST 
 This Project was developed by:
 
 - Project manager [_Kenni (me)_](https://github.com/kenn7575)
-- Jusior developer [_David_](https://github.com/davidsorensenn).
+- Junior developer [_David_](https://github.com/davidsorensenn).
 
 ## Technologies Used
 
 - Svelte
 - NPM
 - Vite
-- TS/JS
+- JS
+- Firebase hosting & analytics
+
+## Apis Used
+
+- [Open-Metro api](https://open-meteo.com/en/docs) for weather data
+- [Geoapify api](https://www.geoapify.com/) for geo translation and location auto completion
 
 ## Features
 

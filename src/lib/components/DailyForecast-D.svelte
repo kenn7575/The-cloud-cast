@@ -38,6 +38,9 @@
     left: 0px;
     background: var(--background-1);
   }
+  h5 {
+    min-width: 35%;
+  }
   .svg {
     width: 60px;
     height: 60px;
