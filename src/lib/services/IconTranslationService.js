@@ -1,5 +1,7 @@
-import { clearSky } from "../../../public/icons/clearSky.js";
-import { fewClouds } from "../../../public/icons/fewClouds.js";
+import { clearSkySun } from "../../../public/icons/clearSkySun.js";
+import { clearSkyMoon } from "../../../public/icons/clearSkyMoon.js";
+import { fewCloudsSun } from "../../../public/icons/fewCloudsSun.js";
+import { fewCloudsMoon } from "../../../public/icons/fewCloudsMoon.js";
 import { overcast } from "../../../public/icons/overcast.js";
 import { fog } from "../../../public/icons/fog.js";
 import { slightRain } from "../../../public/icons/slightRain.js";
@@ -12,17 +14,59 @@ import { thunder } from "../../../public/icons/thunder.js";
 import { freezingRain } from "../../../public/icons/freezingRain.js";
 import { iconNotFound } from "../../../public/icons/iconNotFound.js";
 
-export function GetWeatherSympol(weather) {
+import isNight from "../services/nightTimeCalculator.js";
+
+function validate(time, sunset, sunrise) {
+  if (time == null || sunset == null || sunrise == null) {
+    return false;
+  } else if (
+    time === undefined ||
+    sunset === undefined ||
+    sunrise === undefined
+  ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+export function GetWeatherSympol(weather, sunset, sunrise, time) {
   switch (weather) {
     case 0:
       //clear sky
-      return clearSky;
+      if (validate(time, sunset, sunrise)) {
+        if (isNight(sunset, sunrise, time)) {
+          return clearSkyMoon;
+        } else {
+          return clearSkySun;
+        }
+      } else {
+        return clearSkySun;
+      }
+
     case 1:
       //few clouds
-      return fewClouds;
+      if (validate(time, sunset, sunrise)) {
+        if (isNight(sunset, sunrise, time)) {
+          return fewCloudsMoon;
+        } else {
+          return fewCloudsSun;
+        }
+      } else {
+        return fewCloudsSun;
+      }
+
     case 2:
       //partly cloudy
-      return fewClouds;
+      if (validate(time, sunset, sunrise)) {
+        if (isNight(sunset, sunrise, time)) {
+          return fewCloudsMoon;
+        } else {
+          return fewCloudsSun;
+        }
+      } else {
+        return fewCloudsSun;
+      }
+
     case 3:
       //overcast
       return overcast;

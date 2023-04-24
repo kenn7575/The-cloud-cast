@@ -1,7 +1,10 @@
 <script>
   import HourlyForecast from "./hourlyForecast-D.svelte";
-  import { hourlyWeatherData } from "../data/stores/WeatherDataStores.js";
-
+  import {
+    hourlyWeatherData,
+    currentWeatherData,
+  } from "../data/stores/WeatherDataStores.js";
+  $: currentWeather = $currentWeatherData;
   $: hourlyData = $hourlyWeatherData;
 </script>
 
@@ -15,6 +18,8 @@
         time={hour.time}
         icon={hour.weathercode}
         temp={hour.temp}
+        sunset={currentWeather.sunset}
+        sunrise={currentWeather.sunrise}
       />
     {/each}
   {/if}
