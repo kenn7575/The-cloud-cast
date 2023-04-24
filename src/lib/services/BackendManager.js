@@ -28,8 +28,24 @@ import {
 } from "./WeatherDataFilters.js";
 //decodes the location to a city name
 import { Decode } from "../data/apis/GeoCoding.js";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 const initBackend = async () => {
+  const firebaseConfig = {
+    apiKey: "AIzaSyCm8DU9jXBpQol_5LkjepASg9Lm0SAxpIk",
+    authDomain: "the-cloud-cast.firebaseapp.com",
+    projectId: "the-cloud-cast",
+    storageBucket: "the-cloud-cast.appspot.com",
+    messagingSenderId: "73295765172",
+    appId: "1:73295765172:web:b7d9e2555cd8f1441781e1",
+    measurementId: "G-Y0LXSDK86N",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
   const location = await getEntryLocation();
   console.log("getting weather for", location.city + "...");
   await GetAndUpdateWeather(location)
