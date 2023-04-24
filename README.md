@@ -7,6 +7,7 @@
 
 - [General Info](#general-information)
 - [Technologies Used](#technologies-used)
+- [Apis Used](#Apis-Used)
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Structure](#Structure)
@@ -32,6 +33,11 @@ This Project was developed by:
 - Vite
 - JS
 - Firebase hosting & analytics
+
+## Apis Used
+
+- [Open-Metro api](https://open-meteo.com/en/docs) for weather data
+- [Geoapify api](https://www.geoapify.com/) for geo translation and location auto completion
 
 ## Features
 
