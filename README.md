@@ -23,14 +23,15 @@ The Purpose of this project was to learn svelte, as well as learning about REST 
 This Project was developed by:
 
 - Project manager [_Kenni (me)_](https://github.com/kenn7575)
-- Jusior developer [_David_](https://github.com/davidsorensenn).
+- Junior developer [_David_](https://github.com/davidsorensenn).
 
 ## Technologies Used
 
 - Svelte
 - NPM
 - Vite
-- TS/JS
+- JS
+- Firebase hosting & analytics
 
 ## Features
 
