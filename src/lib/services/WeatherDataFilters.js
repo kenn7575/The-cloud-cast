@@ -19,7 +19,7 @@ const filterHourlyData = (data) => {
       temp: Math.round(temperature),
     });
   }
-
+  formatedData[0].time = "Now";
   return formatedData;
 };
 const filterDailyData = (data) => {
@@ -38,7 +38,7 @@ const filterDailyData = (data) => {
       temperature_min: Math.round(temperature_min),
     });
   }
-  formatedData[0].time = "I dag";
+  formatedData[0].time = "Today";
   return formatedData;
 };
 

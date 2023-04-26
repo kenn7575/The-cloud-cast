@@ -10,12 +10,12 @@
     {#if DailyData.length === 0}
       <p>Loading...</p>
     {/if}
-    {#each DailyData as hour}
+    {#each DailyData as day}
       <DailyForecast
-        time={hour.time}
-        icon={hour.weathercode}
-        temp_max={hour.temperature_max}
-        temp_min={hour.temperature_min}
+        time={day.time}
+        icon={day.weathercode}
+        temp_max={day.temperature_max}
+        temp_min={day.temperature_min}
       />
     {/each}
   {/if}

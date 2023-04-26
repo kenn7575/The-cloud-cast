@@ -7,6 +7,8 @@
   import { x } from "../../../public/icons/x.js";
   import { searchGlass } from "../../../public/icons/searchGlass.js";
   import { fly } from "svelte/transition";
+  import Footer from "../components/footerMobile.svelte";
+
   import { LocationFinderModal } from "../data/stores/Modals.js";
   $: visible = $LocationFinderModal;
   $: console.log(visible);
@@ -41,6 +43,7 @@
     <DailyForecast />
   </div>
 </div>
+<Footer />
 {#if visible}
   <div transition:fly={{ x: -200, duration: 500 }} class="searchbox bg-1">
     <button class="btn" on:click={toggleMenu}>

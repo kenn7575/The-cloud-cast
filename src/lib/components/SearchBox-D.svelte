@@ -49,7 +49,7 @@
       bind:value={searchRequest}
       on:input={handleSerchReqest}
       type="text"
-      placeholder="Søg efter by"
+      placeholder="Search city"
       id="input-box"
       autocomplete="off"
     />

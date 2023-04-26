@@ -4,6 +4,7 @@
   import CurrentForecast from "../components/CurrentForecastDetails-C.svelte";
   import LocationFinder from "../components/LocationFinder-C.svelte";
   import CurrentForecastMain from "../components/CurrentWeatherMain-C.svelte";
+  import Footer from "../components/footer.svelte";
 </script>
 
 <div class="grid bg-1">
@@ -16,7 +17,7 @@
   </div>
 
   <div class="grid-element daily bg-2">
-    <h4>Denne uge</h4>
+    <h4>This week</h4>
     <DailyForecast />
   </div>
   <div class="grid-element current-detail">
@@ -24,9 +25,12 @@
   </div>
 
   <div class="grid-element hourly bg-2">
-    <h4>Time oversigt</h4>
+    <h4>Hourly</h4>
     <HourlyForecast />
   </div>
+</div>
+<div class="footer">
+  <Footer />
 </div>
 
 <style>
@@ -39,6 +43,7 @@
     height: 800px;
     padding-bottom: calc(2rem + 4%);
   }
+
   .srearch {
     grid-column: 1/1;
     grid-row: 1/4;

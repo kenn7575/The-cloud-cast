@@ -59,7 +59,6 @@
   .content {
     position: relative;
     height: 800px;
-    padding-bottom: calc(2rem + 4%);
   }
   .deafult {
     margin: 2rem;
