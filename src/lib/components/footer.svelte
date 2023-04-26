@@ -125,10 +125,11 @@
     gap: 1rem;
   }
   p.github {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin: 0.5rem 0;
     max-width: 600px;
   }
+
   p,
   h2,
   strong {
@@ -137,7 +138,9 @@
   p {
     font-weight: 300;
   }
-
+  h2 {
+    font-size: 1.15rem;
+  }
   img {
     width: 40px;
     height: 40px;
