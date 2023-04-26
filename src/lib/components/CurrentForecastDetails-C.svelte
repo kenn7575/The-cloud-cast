@@ -21,67 +21,67 @@
 <div class="flex {size}">
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Vind"
+      Title="Wind"
       iconSvg={windSpeed}
       value={CurrentForecast.windSpeed + " m/s"}
-      explanation={"Fra " + CurrentForecast.windDirection}
+      explanation={"From " + CurrentForecast.windDirection}
     />
   </div>
 
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Regn"
+      Title="Rain"
       iconSvg={rainSum}
       value={CurrentForecast.rainSum + " mm"}
-      explanation="I dag"
+      explanation="Today"
     />
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Regn"
+      Title="Rain"
       iconSvg={precipitationProbability}
       value={CurrentForecast.rainSum + "%"}
-      explanation="Chance for regn i dag"
+      explanation="Chance of rain today"
     />
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Føles som"
+      Title="Apparent"
       iconSvg={apparent}
       value={CurrentForecast.apparent_temperature + "°"}
-      explanation="På grund af vind"
+      explanation="Because of wind"
     />
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="UV indeks"
+      Title="UV index"
       iconSvg={uvIndex}
       value={CurrentForecast.uv}
-      explanation={CurrentForecast.uv_clear_sky + " ved klar himmel"}
+      explanation={CurrentForecast.uv_clear_sky + " clear sky"}
     />
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Luftfugtighed"
+      Title="Humidity"
       iconSvg={precipitationProbability}
       value={CurrentForecast.humidity + "%"}
-      explanation="Lige nu"
+      explanation="Right now"
     />
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Solnedgang"
+      Title="Sunset"
       iconSvg={sunSet}
       value={CurrentForecast.sunset}
-      explanation="I dag"
+      explanation="Today"
     />
   </div>
   <div class="grid-template">
     <CurrentForecastDetails
-      Title="Soloppgang"
+      Title="Sunrise"
       iconSvg={sunRise}
       value={CurrentForecast.sunrise}
-      explanation="I dag"
+      explanation="Today"
     />
   </div>
 </div>

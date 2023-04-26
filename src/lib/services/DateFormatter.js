@@ -6,27 +6,27 @@ const formatDailyDate = (inputData) => {
   const weekday = date.getDay();
 
   const months = [
-    "januar",
-    "februar",
-    "marts",
-    "april",
-    "maj",
-    "juni",
-    "juli",
-    "august",
-    "september",
-    "oktober",
-    "november",
-    "december",
+    "Jan.",
+    "Feb.",
+    "Mar.",
+    "Apr.",
+    "May",
+    "June",
+    "July",
+    "Aug.",
+    "Sept.",
+    "Oct.",
+    "Nov.",
+    "Dec.",
   ];
   const weekdays = [
-    "søndag",
-    "mandag",
-    "tirsdag",
-    "onsdag",
-    "torsdag",
-    "fredag",
-    "lørdag",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   const formattedDate = `${weekdays[weekday]} ${day}. ${months[month]}`;
   return formattedDate;

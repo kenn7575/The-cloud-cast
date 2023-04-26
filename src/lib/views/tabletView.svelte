@@ -8,6 +8,7 @@
   import LocationFinder from "../components/LocationFinder-C.svelte";
   import { x } from "../../../public/icons/x.js";
   import { fly, fade } from "svelte/transition";
+  import Footer from "../components/footer.svelte";
 
   function toggleMenu() {
     LocationFinderModal.update((bool) => {
@@ -56,8 +57,14 @@
     <HourlyForecast />
   </div>
 </div>
+<div class="footer">
+  <Footer />
+</div>
 
 <style>
+  .footer {
+    margin-top: 5rem;
+  }
   .backDrop {
     position: fixed;
     top: 0;

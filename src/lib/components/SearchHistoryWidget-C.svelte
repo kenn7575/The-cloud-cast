@@ -28,7 +28,7 @@
 
 {#if locations}
   <div class="container">
-    <h4>Seneste</h4>
+    <h4>History</h4>
     {#each locations as location}
       <button
         on:click={() => {
@@ -106,7 +106,7 @@
     margin: 0;
   }
   h4 {
-    margin: 0.5rem;
+    margin-left: 0.7rem;
     margin-top: 0.8rem;
   }
 </style>
