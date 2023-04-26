@@ -66,7 +66,7 @@
   </div>
   <div class="arr">
     <hr />
-    <p>© The-cloud-cast. All rights reserved</p>
+    <p>© The cloud cast. All rights reserved.</p>
     <p>Licensed under the Apache License, Version 2.0</p>
   </div>
 </footer>
