@@ -25,7 +25,10 @@ const filterPlaces = (data) => {
       lon: londitudes[element],
       id: element,
     };
-    sortedList.push(place);
+    if(place.city != "undefined"){
+          sortedList.push(place);
+
+    }
   });
 
   return sortedList;
