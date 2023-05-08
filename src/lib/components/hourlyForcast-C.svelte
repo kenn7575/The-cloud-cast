@@ -20,6 +20,7 @@
         temp={hour.temp}
         sunset={currentWeather.sunset}
         sunrise={currentWeather.sunrise}
+        timeData={hour.timeData}
       />
     {/each}
   {/if}

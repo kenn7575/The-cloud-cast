@@ -4,9 +4,17 @@
   export let temp;
   export let sunset;
   export let sunrise;
+  export let timeData;
 
   import { GetWeatherSympol } from "../services/IconTranslationService.js";
-  $: svg = GetWeatherSympol(icon, sunrise, sunset, time);
+  $: svg = GetWeatherSympol(icon, sunrise, sunset, timeData);
+  console.log(
+    "🚀 ~ file: hourlyForecast-D.svelte:11 ~ icon, sunrise, sunset, timeData:",
+    icon,
+    sunrise,
+    sunset,
+    timeData
+  );
 </script>
 
 <div class="flex">
