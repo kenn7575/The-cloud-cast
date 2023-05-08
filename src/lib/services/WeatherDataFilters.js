@@ -13,7 +13,9 @@ const filterHourlyData = (data) => {
     let temperature = data.hourly.temperature_2m[index + hour];
     let time = data.hourly.time[index + hour];
     let formatedTime = time.slice(11, 16);
+
     formatedData.push({
+      timeData: formatedTime,
       time: formatedTime,
       weathercode: weatherCode,
       temp: Math.round(temperature),
