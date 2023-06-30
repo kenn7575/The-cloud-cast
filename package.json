@@ -15,7 +15,7 @@
     "vite": "^4.2.3"
   },
   "dependencies": {
-    "firebase": "^9.22.1",
+    "firebase": "^9.22.2",
     "svelte-media-queries": "^1.5.4"
   }
 }
