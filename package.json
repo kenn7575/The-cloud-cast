@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "firebase": "^9.23.0",
-    "svelte-media-queries": "^1.5.4"
+    "svelte-media-queries": "^1.6.1"
   }
 }
